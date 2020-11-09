@@ -40,5 +40,4 @@ public class MinList {
     return minValue;
   }
 }
-
 ```

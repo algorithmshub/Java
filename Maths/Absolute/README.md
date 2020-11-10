@@ -1,6 +1,6 @@
 # Absolute.java
 
-Write a function returns the absolute value of a number
+Write a function returns the absolute value of a number.
 
 ### Code
 

@@ -15,7 +15,8 @@ public class Absolute {
   /** Driver Code */
   public static void main(String[] args) {
     System.out.println(absVal(-0) == Math.abs(0));
-    System.out.println(absVal(-1) == Math.abs(1));
+    System.out.println(absVal(1) == Math.abs(1));
+    System.out.println(absVal(-2) == Math.abs(2));
   }
 
   /**

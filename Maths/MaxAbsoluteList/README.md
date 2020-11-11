@@ -14,7 +14,8 @@ Find the maximum absolute value of an array.
 /**
  * Expected
  *
- * findMaxAbsolute([0, -5, -1, 11]) === 11, findMaxAbsolute([7 , -17, -9]) === -17
+ * findMaxAbsolute([0, -5, -1, 11]) === 11
+ * findMaxAbsolute([7 , -17, -9]) === -17
  */
 public class MaxAbsoluteList {
 

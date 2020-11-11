@@ -1,14 +1,14 @@
 /**
-  * Author
-  *
-  * Bunlong @AlgorithmsHub 
-  */
+ * Author
+ *
+ * Bunlong @AlgorithmsHub 
+ */
 
 /**
-  * What is Absolute Value?
-  *
-  * The absolute value is the non-negative value.
-  */
+ * What is Absolute Value?
+ *
+ * The absolute value is the non-negative value.
+ */
 public class Absolute {
 
   /** Driver Code */

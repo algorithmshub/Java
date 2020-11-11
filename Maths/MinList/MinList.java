@@ -1,8 +1,8 @@
 /**
-  * Author
-  *
-  * Bunlong @AlgorithmsHub 
-  */
+ * Author
+ *
+ * Bunlong @AlgorithmsHub 
+ */
 public class MinList {
 
   /** Driver Code */
@@ -12,11 +12,11 @@ public class MinList {
   }
 
   /**
-    * find the minimum number of an array of numbers
-    *
-    * @param a the array contains element
-    * @return min value
-    */
+   * find the minimum number of an array of numbers
+   *
+   * @param a the array contains element
+   * @return min value
+   */
   public static int findMin(int[] a) {
     int minValue = a[0];
 

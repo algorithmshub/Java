@@ -1,6 +1,6 @@
 # Algorithms Hub ( Java )
 
-### Table of Contents
+## Table of Contents
 
 * Maths
   * [Absolute](https://github.com/algorithmshub/Java/tree/main/Maths/Absolute)

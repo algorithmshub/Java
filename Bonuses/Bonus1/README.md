@@ -1,6 +1,4 @@
-# Bonus1
-
-### code
+# Bonus1.java
 
 Write a function that:
 * accepts an array of non-negative integers
@@ -15,6 +13,8 @@ Write a function that:
 | {1, 1} | -1 |
 | {1} | -1 |
 | {} | -1 |
+
+### Code
 
 ```java
 public class Bonus1 {

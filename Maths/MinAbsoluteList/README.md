@@ -2,7 +2,7 @@
 
 Find the minimum absolute value of an array.
 
-### Code
+### Solution
 
 ```java
 /**

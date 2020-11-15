@@ -2,7 +2,7 @@
 
 Find the maximum number of an array.
 
-### Code
+### Solution
 
 ```java
 /**

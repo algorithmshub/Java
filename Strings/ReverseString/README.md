@@ -2,7 +2,7 @@
 
 Write a function to reverse string.
 
-### Code
+### Solution
 
 ```java
 /**

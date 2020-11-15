@@ -6,7 +6,7 @@ Find the minimum number of an array.
 
 ![MinList Flowchart](https://raw.githubusercontent.com/algorithmshub/Java/main/Maths/MinList/minlist-flowchart.png "MinList Flowchart")
 
-### Code
+### Solution
 
 ```java
 /**

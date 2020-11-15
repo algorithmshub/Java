@@ -13,4 +13,5 @@
   * [MinList](https://github.com/algorithmshub/Java/tree/main/Maths/MinList)
 
 * Strings
+  * [AllCharactersSame](https://github.com/algorithmshub/Java/tree/main/Strings/AllCharactersSame)
   * [ReverseString](https://github.com/algorithmshub/Java/tree/main/Strings/ReverseString)

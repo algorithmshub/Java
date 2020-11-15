@@ -2,7 +2,7 @@
 
 Write a function returns the absolute value of a number.
 
-### Code
+### Solution
 
 ```java
 /**

@@ -14,7 +14,7 @@ The factorial of 5! is 5 * 4 * 3 * 2 * 1 = 120.
 
 Problem: Write a function to calculate factorial of n using iteration.
 
-### Code
+### Solution
 
 ```java
 /**

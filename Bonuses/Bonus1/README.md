@@ -14,7 +14,7 @@ Write a function that:
 | {1} | -1 |
 | {} | -1 |
 
-### Code
+### Solution
 
 ```java
 public class Bonus1 {

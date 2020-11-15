@@ -2,7 +2,7 @@
 
 Find the maximum absolute value of an array.
 
-### Code
+### Solution
 
 ```java
 /**

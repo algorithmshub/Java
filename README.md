@@ -1,4 +1,4 @@
-# Algorithms Hub ( Java )
+# Java Algorithms – AlgorithmsHub
 
 ## Table of Contents
 

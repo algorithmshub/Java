@@ -16,10 +16,10 @@ public class UpperCase {
   }
 
   /**
-   * Convert the characters of the string into lower case
+   * Convert the characters of the string into upper case
    *
    * @param str the string to convert
-   * @return the string converted to lowercase
+   * @return the string converted to uppercase
    */
   public static String toUpperCase(String str) {
     char[] chars = str.toCharArray();

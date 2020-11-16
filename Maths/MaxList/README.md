@@ -5,11 +5,6 @@ Find the maximum number of an array.
 ### Solution
 
 ```java
-/**
-  * Author
-  *
-  * Bunlong @AlgorithmsHub 
-  */
 public class MaxList {
 
   /** Driver Code */

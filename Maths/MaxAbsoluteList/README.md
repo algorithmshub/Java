@@ -6,12 +6,6 @@ Find the maximum absolute value of an array.
 
 ```java
 /**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
-
-/**
  * Expected
  *
  * findMaxAbsolute([0, -5, -1, 11]) === 11

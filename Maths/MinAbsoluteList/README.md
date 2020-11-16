@@ -6,12 +6,6 @@ Find the minimum absolute value of an array.
 
 ```java
 /**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
-
-/**
  * Expected
  *
  * findMinAbsolute([0, -5, -1, 11]) === 0

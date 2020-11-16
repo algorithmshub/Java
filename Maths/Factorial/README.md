@@ -17,11 +17,6 @@ Problem: Write a function to calculate factorial of n using iteration.
 ### Solution
 
 ```java
-/**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
 public class Factorial {
 
   /* Driver Code */

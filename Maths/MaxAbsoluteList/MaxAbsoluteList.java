@@ -1,10 +1,4 @@
 /**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
-
-/**
  * Expected
  *
  * findMaxAbsolute([0, -5, -1, 11]) === 11

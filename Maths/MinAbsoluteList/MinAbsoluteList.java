@@ -1,10 +1,4 @@
 /**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
-
-/**
  * Expected
  *
  * findMinAbsolute([0, -5, -1, 11]) === 0

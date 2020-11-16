@@ -1,10 +1,4 @@
 /**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
-
-/**
  * Expected
  *
  * reverse("abc123") equals to "321cba"

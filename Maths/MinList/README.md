@@ -9,11 +9,6 @@ Find the minimum number of an array.
 ### Solution
 
 ```java
-/**
-  * Author
-  *
-  * Bunlong @AlgorithmsHub 
-  */
 public class MinList {
 
   /** Driver Code */

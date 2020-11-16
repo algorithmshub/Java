@@ -1,10 +1,4 @@
 /**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
-
-/**
  * What is Aliquot sum?
  * 
  * In number theory, the aliquot sum s(n) of a positive integer n 

@@ -1,8 +1,3 @@
-/**
- * Author
- *
- * Bunlong @AlgorithmsHub 
- */
 public class MaxList {
 
   /** Driver Code */

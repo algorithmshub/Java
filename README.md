@@ -14,6 +14,7 @@
 
 * Strings
   * [AllCharactersSame](https://github.com/algorithmshub/Java/tree/main/Strings/AllCharactersSame)
+  * [LowerCase](https://github.com/algorithmshub/Java/tree/main/Strings/LowerCase)
   * [ReverseString](https://github.com/algorithmshub/Java/tree/main/Strings/ReverseString)
 
 * Bonuses

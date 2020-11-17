@@ -5,7 +5,7 @@ Write a function that:
 * returns a value based on the sums of the even and odd numbers in the array
 * let X = the sum of the odd numbers in the array
 * let Y = the sum of the even numbers
-* The function should return X - Y
+* the function should return X - Y
 
 The signature of the function is `int f(int[] a)`:
 

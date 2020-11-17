@@ -13,14 +13,13 @@ Find the maximum absolute value of an array.
  */
 public class MaxAbsoluteList {
 
-  /** Driver Code */
   public static void main(String[] args) {
     System.out.println(findMaxAbsolute(new int[]{ 0, -5, -1, 11 }) == 11);
     System.out.println(findMaxAbsolute(new int[]{ 7 , -17, -9 }) == -17);
   }
 
   /**
-   * get the value, return the absolute max value
+   * Get the value, return the absolute max value
    *
    * @param a contains elements
    * @return the absolute max value

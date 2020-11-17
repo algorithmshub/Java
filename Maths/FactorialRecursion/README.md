@@ -19,7 +19,6 @@ Problem: Write a function to calculate factorial of n using iteration.
 ```java
 public class FactorialRecursion {
 
-  /* Driver Code */
   public static void main(String[] args) {
     System.out.println(factorial(0) == 1);
     System.out.println(factorial(1) == 1);
@@ -28,7 +27,7 @@ public class FactorialRecursion {
   }
 
   /**
-   * calculate factorial of n using recursion
+   * Calculate factorial of n using recursion
    *
    * @param n the number
    * @return the factorial of {@code n}

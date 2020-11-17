@@ -6,7 +6,7 @@ Write a function to reverse string.
 
 ```java
 /**
- * Expected
+ * Expect
  *
  * reverse("abc123") equals to "321cba"
  * reverse("321cba") equals to "abc123"
@@ -20,7 +20,7 @@ public class ReverseString {
   }
 
   /**
-   * reverses the string
+   * Reverses the string
    *
    * @param str string to be reversed
    * @return reversed string

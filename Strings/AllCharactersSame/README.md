@@ -7,7 +7,6 @@ Write a function to check if all the characters of a string are same.
 ```java
 public class AllCharactersSame {
 
-  /** Driver Code */
   public static void main(String[] args) {
     System.out.println(isAllCharactersSame(""));
     System.out.println(!isAllCharactersSame("aab"));
@@ -16,7 +15,7 @@ public class AllCharactersSame {
   }
 
   /**
-   * check if all the characters of a string are same
+   * Check if all the characters of a string are same
    *
    * @param str the string to check
    * @return true if all characters of a string are same, otherwise false

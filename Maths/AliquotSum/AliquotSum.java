@@ -15,7 +15,6 @@
  */
 public class AliquotSum {
 
-  /** Driver Code */
   public static void main(String[] args) {
     System.out.println(aliquotSum1(12) == 16);
     System.out.println(aliquotSum1(15) == 9);
@@ -25,7 +24,7 @@ public class AliquotSum {
   }
 
   /**
-   * find the aliquot sum of an integer number
+   * Find the aliquot sum of an integer number
    *
    * @param n a positive integer
    * @return aliquot sum of given {@code n}
@@ -43,7 +42,7 @@ public class AliquotSum {
   }
 
   /**
-   * find the aliquot sum of an integer number
+   * Find the aliquot sum of an integer number
    *
    * @param n a positive integer
    * @return aliquot sum of given {@code n}

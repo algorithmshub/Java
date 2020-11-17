@@ -13,14 +13,13 @@ Find the minimum absolute value of an array.
  */
 public class MinAbsoluteList {
 
-  /** Driver Code */
   public static void main(String[] args) {
     System.out.println(findMinAbsolute(new int[]{ 0, -5, -1, 11 }) == 0);
     System.out.println(findMinAbsolute(new int[]{ 7 , -17, -9 }) == 7);
   }
 
   /**
-   * get the value, return the absolute min value
+   * Get the value, return the absolute min value
    *
    * @param a contains elements
    * @return the absolute min value

@@ -12,7 +12,6 @@ Write a function returns the absolute value of a number.
   */
 public class Absolute {
 
-  /** Driver Code */
   public static void main(String[] args) {
     System.out.println(absVal(-0) == Math.abs(0));
     System.out.println(absVal(1) == Math.abs(1));
@@ -20,7 +19,7 @@ public class Absolute {
   }
 
   /**
-   * if value is less than zero, make value positive
+   * If value is less than zero, make value positive
    *
    * @param value a number
    * @return the absolute value of a number

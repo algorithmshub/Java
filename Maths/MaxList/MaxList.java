@@ -1,13 +1,12 @@
 public class MaxList {
 
-  /** Driver Code */
   public static void main(String[] args) {
     int result = findMax(new int[]{ 12, 35, 7, 10, 34, 2 });
     System.out.println(result);
   }
 
   /**
-   * find the maximum number of an array
+   * Find the maximum number of an array
    *
    * @param a the array contains element
    * @return max value of given array

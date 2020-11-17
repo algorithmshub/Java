@@ -5,6 +5,8 @@ Write a function that:
 * returns the second largest integer in the array
 * return -1 if there is no second largest
 
+The signature of the function is `int f(int[] a)`:
+
 | Input array | Return |
 |:-------------|:-------------|
 | {1, 2, 3, 4} | 3 |

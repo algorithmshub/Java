@@ -21,3 +21,4 @@
 
 * Bonuses
   * [Bonus1](https://github.com/algorithmshub/Java/tree/main/Bonuses/Bonus1)
+  * [Bonus2](https://github.com/algorithmshub/Java/tree/main/Bonuses/Bonus2)

@@ -2,6 +2,9 @@
 
 ## Table of Contents
 
+* DataStructures
+  * [Bags](https://github.com/algorithmshub/Java/tree/main/DataStructures/Bags)
+
 * Maths
   * [Absolute](https://github.com/algorithmshub/Java/tree/main/Maths/Absolute)
   * [AliquotSum](https://github.com/algorithmshub/Java/tree/main/Maths/AliquotSum)

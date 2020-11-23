@@ -6,7 +6,7 @@ Write a function to check if a string is a pangram string or not.
 
 ```java
 /**
- * What is in a Pangram?
+ * What is a Pangram?
  *
  * A pangram or holoalphabetic sentence is a sentence 
  * using every letter of a given alphabet at least once.

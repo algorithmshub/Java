@@ -1,3 +1,13 @@
+/**
+ * What is Digit Sum?
+ *
+ * In mathematics, the digit sum of a natural number 
+ * in a given number base is the sum of all its digits.
+ */
+
+/**
+ * Problem: Write a function to calculate the sum of digits of number
+ */
 public class DigitSum {
 
   public static void main(String[] args) {

@@ -1,17 +1,16 @@
-# Absolute.java
+# Absolute
 
-Write a function returns the absolute value of a number.
+**What is Absolute Value?**
 
-### Solution
+The absolute value is the non-negative value.
+
+## Java
 
 ```java
 /**
-  * What is Absolute Value?
-  *
-  * The absolute value is the non-negative value.
-  */
+ * Write a function returns the absolute value of a number.
+ */
 public class Absolute {
-
   public static void main(String[] args) {
     System.out.println(absVal(-0) == Math.abs(0));
     System.out.println(absVal(1) == Math.abs(1));

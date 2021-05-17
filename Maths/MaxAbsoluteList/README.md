@@ -1,18 +1,16 @@
-# MaxAbsoluteList.java
+# MaxAbsoluteList
 
 Find the maximum absolute value of an array.
 
-### Solution
+Expected:
+
+* `findMaxAbsolute([0, -5, -1, 11]) === 11`
+* `findMaxAbsolute([7 , -17, -9]) === -17`
+
+## Java
 
 ```java
-/**
- * Expected
- *
- * findMaxAbsolute([0, -5, -1, 11]) === 11
- * findMaxAbsolute([7 , -17, -9]) === -17
- */
 public class MaxAbsoluteList {
-
   public static void main(String[] args) {
     System.out.println(findMaxAbsolute(new int[]{ 0, -5, -1, 11 }) == 11);
     System.out.println(findMaxAbsolute(new int[]{ 7 , -17, -9 }) == -17);

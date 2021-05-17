@@ -1,12 +1,11 @@
-# MaxList.java
+# MaxList
 
 Find the maximum number of an array.
 
-### Solution
+## Java
 
 ```java
 public class MaxList {
-
   public static void main(String[] args) {
     int result = findMax(new int[]{ 12, 35, 7, 10, 34, 2 });
     System.out.println(result);

@@ -4,12 +4,13 @@
 
 The absolute value is the non-negative value.
 
+Example:
+
+Write a function returns the absolute value of a number.
+
 ## Java
 
 ```java
-/**
- * Write a function returns the absolute value of a number.
- */
 public class Absolute {
   public static void main(String[] args) {
     System.out.println(absVal(-0) == Math.abs(0));

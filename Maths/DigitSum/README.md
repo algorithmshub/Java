@@ -1,19 +1,17 @@
+# DigitSum
 
-# DigitSum.java
-
-What is Digit Sum?
+**What is Digit Sum?**
 
 In mathematics, the digit sum of a natural number in a given number base is the sum of all its digits.
 
-For examples:
+**Example**
 
 The digit sum of the decimal number 9045 would be 9 + 0 + 4 + 5 = 18.
 
-### Solution
+**Java**
 
-```java
+```js
 public class DigitSum {
-
   public static void main(String[] args) {
     System.out.println(digitSum(-123) == 6);
     System.out.println(digitSumRecursion(123) == 6);

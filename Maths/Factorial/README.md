@@ -6,13 +6,13 @@ The factorial of a positive integer n, denoted by n!, is the product of all posi
 
 `n! = n * (n - 1) * (n - 2) * (n - 3) ... 3 * 2 * 1`
 
-Example:
+**Example**
 
 The factorial of 0! is 1 The factorial of 5! is 5 * 4 * 3 * 2 * 1 = 120.
 
 Write a function to calculate factorial of n using iteration.
 
-## Java
+**Java**
 
 ```java
 public class Factorial {

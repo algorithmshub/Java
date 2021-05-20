@@ -1,16 +1,13 @@
-# MinList.java
+# MinList
+
+**Example**
 
 Find the minimum number of an array.
 
-### Flowchart
+**Java**
 
-![MinList Flowchart](https://raw.githubusercontent.com/algorithmshub/Java/main/Maths/MinList/minlist-flowchart.png "MinList Flowchart")
-
-### Solution
-
-```java
+```js
 public class MinList {
-
   public static void main(String[] args) {
     int result = findMin(new int[]{ 12, 35, 7, 10, 34, 2 });
     System.out.println(result);

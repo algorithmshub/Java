@@ -1,18 +1,18 @@
-# MinAbsoluteList.java
+# MinAbsoluteList
+
+**Example**
 
 Find the minimum absolute value of an array.
 
-### Solution
+**Expected**
 
-```java
-/**
- * Expected
- *
- * findMinAbsolute([0, -5, -1, 11]) === 0
- * findMinAbsolute([7 , -17, -9]) === 7
- */
+* `findMinAbsolute([0, -5, -1, 11]) === 0`
+* `findMinAbsolute([7 , -17, -9]) === 7`
+
+**Java**
+
+```js
 public class MinAbsoluteList {
-
   public static void main(String[] args) {
     System.out.println(findMinAbsolute(new int[]{ 0, -5, -1, 11 }) == 0);
     System.out.println(findMinAbsolute(new int[]{ 7 , -17, -9 }) == 7);

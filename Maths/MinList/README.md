@@ -13,12 +13,6 @@ public class MinList {
     System.out.println(result);
   }
 
-  /**
-    * Find the minimum number of an array of numbers
-    *
-    * @param a the array contains element
-    * @return min value
-    */
   public static int findMin(int[] a) {
     int minValue = a[0];
 

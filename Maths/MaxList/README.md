@@ -13,12 +13,6 @@ public class MaxList {
     System.out.println(result);
   }
 
-  /**
-   * Find the maximum number of an array
-   *
-   * @param a the array contains element
-   * @return max value of given array
-   */
   public static int findMax(int[] a) {
     int maxValue = a[0];
 

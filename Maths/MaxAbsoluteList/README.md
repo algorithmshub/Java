@@ -18,12 +18,6 @@ public class MaxAbsoluteList {
     System.out.println(findMaxAbsolute(new int[]{ 7 , -17, -9 }) == -17);
   }
 
-  /**
-   * Get the value, return the absolute max value
-   *
-   * @param a contains elements
-   * @return the absolute max value
-   */
   public static int findMaxAbsolute(int[] a) {
     int maxAbsValue = a[0];
 
@@ -36,12 +30,6 @@ public class MaxAbsoluteList {
     return maxAbsValue;
   }
 
-  /**
-   * if value is less than zero, make value positive
-   *
-   * @param value a number
-   * @return the absolute value of a number
-   */
   public static int absVal(int value) {
     return value < 0 ? -value : value;
   }

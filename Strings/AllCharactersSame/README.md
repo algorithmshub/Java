@@ -1,12 +1,13 @@
-# AllCharactersSame.java
+# AllCharactersSame
+
+**Example**
 
 Write a function to check if all the characters of a string are same.
 
-### Solution
+**Java**
 
-```java
+```js
 public class AllCharactersSame {
-
   public static void main(String[] args) {
     System.out.println(isAllCharactersSame(""));
     System.out.println(!isAllCharactersSame("aab"));

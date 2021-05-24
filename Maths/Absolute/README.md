@@ -18,12 +18,6 @@ public class Absolute {
     System.out.println(absVal(-2) == Math.abs(2));
   }
 
-  /**
-   * If value is less than zero, make value positive
-   *
-   * @param value a number
-   * @return the absolute value of a number
-   */
   public static int absVal(int value) {
     return value < 0 ? -value : value;
   }

@@ -2,15 +2,15 @@
 
 **What is Factorial?**
 
-The factorial of a positive integer n, denoted by n!, is the product of all positive integers less than or equal to n.
+The factorial of a positive integer `n`, denoted by `n!`, is the product of all positive integers less than or equal to `n`.
 
 `n! = n * (n - 1) * (n - 2) * (n - 3) ... 3 * 2 * 1`
 
 **Example**
 
-The factorial of 0! is 1 The factorial of 5! is 5 * 4 * 3 * 2 * 1 = 120.
+The factorial of `0!` is `1` The factorial of 5! is `5 * 4 * 3 * 2 * 1 = 120`.
 
-Write a function to calculate factorial of n using iteration.
+Write a function to calculate factorial of `n` using iteration.
 
 **Java**
 
@@ -23,12 +23,6 @@ public class Factorial {
     System.out.println(factorial(3) == 6);
   }
 
-  /**
-   * calculate factorial of n using iteration
-   *
-   * @param n the number
-   * @return the factorial of {@code n}
-   */
   public static long factorial(int n) {
     long fact = 1;
 

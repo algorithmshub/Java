@@ -1,16 +1,16 @@
 # AliquotSum
 
-**What is Aliquot sum?**
+**What is Aliquot Sum?**
 
 In number theory, the aliquot sum s(n) of a positive integer n is the sum of all proper divisors of n, that is, all divisors of n other than n itself.
 
 **Example**
 
-Input: 12
+Input: `12`
 
-Output: 16
+Output: `16`
 
-Explanation: proper divisors of 12 is 1, 2, 3, 4, 6 and sum is 1 + 2 + 3 + 4 + 6 = 16
+Explanation: proper divisors of `12` is `1, 2, 3, 4, 6` and sum is `1 + 2 + 3 + 4 + 6 = 16`.
 
 **Java**
 
@@ -24,12 +24,6 @@ public class AliquotSum {
     System.out.println(aliquotSum2(15) == 9);
   }
 
-  /**
-   * find the aliquot sum of an integer number
-   *
-   * @param n a positive integer
-   * @return aliquot sum of given {@code n}
-   */
   public static int aliquotSum1(int n) {
     int sum = 0; 
 
@@ -42,12 +36,6 @@ public class AliquotSum {
     return sum;
   }
 
-  /**
-   * find the aliquot sum of an integer number
-   *
-   * @param n a positive integer
-   * @return aliquot sum of given {@code n}
-   */
   public static int aliquotSum2(int n) {
     int sum = 0;
 

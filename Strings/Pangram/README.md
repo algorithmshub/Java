@@ -1,30 +1,23 @@
-# Pangram.java
+# Pangram
+
+**What is Pangram?**
+
+Pangram is a sentence  using every letter of a given alphabet at least once.
+
+**Example**
 
 Write a function to check if a string is a pangram string or not.
 
-### Solution
+**Java**
 
-```java
-/**
- * What is a Pangram?
- *
- * A pangram or holoalphabetic sentence is a sentence 
- * using every letter of a given alphabet at least once.
- */
+```js
 public class Pangram {
-
   public static void main(String[] args) {
     System.out.println(isPangram("abcdefghijklmnopqrstuvwxyz"));
     /* Not exists z character */
     System.out.println(isPangram("abcdefghijklmnopqrstuvwxy"));
   }
 
-  /**
-   * Check if a string is a pangram string or not
-   *
-   * @param str string to check
-   * @return true if given string is pangram otherwise false
-   */
   public static boolean isPangram(String str) {
     /* All letters don't exists by default */
     boolean[] marked = new boolean[26];

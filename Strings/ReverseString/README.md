@@ -1,30 +1,23 @@
-# ReverseString.java
+# Reverse
+
+**Example**
 
 Write a function to reverse string.
 
-### Solution
+**Expected**
 
-```java
-/**
- * Expect
- *
- * reverse("abc123") equals to "321cba"
- * reverse("321cba") equals to "abc123"
- */
-public class ReverseString {
+* `reverse("abc123")` equals to `"321cba"`
+* `reverse("321cba")` equals to `"abc123"`
 
-  /** Driver Code */
+**Java**
+
+```js
+public class Reverse {
   public static void main(String[] args) {
     System.out.println(reverse("abc123").equals("321cba"));
     System.out.println(reverse("321cba").equals("abc123"));
   }
 
-  /**
-   * Reverses the string
-   *
-   * @param str string to be reversed
-   * @return reversed string
-   */
   public static String reverse(String str) {
     if (str == null || str.isEmpty()) {
       return str;

@@ -1,20 +1,20 @@
-# UpperCase.java
+# UpperCase
 
-Given a string, write a function to convert the characters of the string into upper case.
+**Example**
 
-### Solution
+Write a function to convert the characters of the string into upper case.
 
-```java
-/**
- * Expect
- *
- * toUpperCase("ABC") equals to "ABC".toUpperCase()
- * toUpperCase("ABC123") equals to "ABC123".toUpperCase()
- * toUpperCase("abcABC") equals to "abcABC".toUpperCase()
- * toUpperCase("abc123ABC") equals to "abc123ABC".toUpperCase()
- */
+**Expected**
+
+* `toUpperCase("ABC")` equals to `"ABC".toUpperCase()`
+* `toUpperCase("ABC123")` equals to `"ABC123".toUpperCase()`
+* `toUpperCase("abcABC")` equals to `"abcABC".toUpperCase()`
+* `toUpperCase("abc123ABC")` equals to `"abc123ABC".toUpperCase()`
+
+**Java**
+
+```js
 public class UpperCase {
-
   public static void main(String[] args) {
     System.out.println(toUpperCase("ABC").equals("ABC".toUpperCase()));
     System.out.println(toUpperCase("ABC123").equals("ABC123".toUpperCase()));
@@ -22,12 +22,6 @@ public class UpperCase {
     System.out.println(toUpperCase("abc123ABC").equals("abc123ABC".toUpperCase()));
   }
 
-  /**
-   * Convert the characters of the string into upper case
-   *
-   * @param str the string to convert
-   * @return the string converted to uppercase
-   */
   public static String toUpperCase(String str) {
     char[] chars = str.toCharArray();
 

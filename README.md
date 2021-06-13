@@ -23,6 +23,7 @@
   * [ReverseString](https://github.com/algorithmshub/Java/tree/main/Strings/ReverseString)
   * [UpperCase](https://github.com/algorithmshub/Java/tree/main/Strings/UpperCase)
 
-* Bonuses
-  * [Bonus1](https://github.com/algorithmshub/Java/tree/main/Bonuses/Bonus1)
-  * [Bonus2](https://github.com/algorithmshub/Java/tree/main/Bonuses/Bonus2)
+* Assignments
+  * [Assignment1](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment1)
+  * [Assignment2](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment2)
+  * [Assignment3](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment3)

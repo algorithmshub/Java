@@ -1,5 +1,4 @@
-public class Bonus2 {
-
+public class Assignment2 {
   public static void main(String[] args) {
     System.out.println(f(new int[]{1}) == 1);
     System.out.println(f(new int[]{1, 2}) == -1);

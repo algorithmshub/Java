@@ -1,6 +1,7 @@
-# Bonus1.java
+# Assignment1.java
 
 Write a function that:
+
 * accepts an array of non-negative integers
 * returns the second largest integer in the array
 * return -1 if there is no second largest
@@ -19,8 +20,7 @@ The signature of the function is `int f(int[] a)`:
 ### Solution
 
 ```java
-public class Bonus1 {
-
+public class Assignment1 {
   public static void main(String[] args) {
     System.out.println(f(new int[]{1, 2, 3, 4}) == 3);
     System.out.println(f(new int[]{4, 1, 2, 3}) == 3);

@@ -1,6 +1,7 @@
-# Bonus2.java
+# Assignment2.java
 
 Write a function that:
+
 * takes an array of integers as an argument
 * returns a value based on the sums of the even and odd numbers in the array
 * let X = the sum of the odd numbers in the array
@@ -24,8 +25,7 @@ The signature of the function is `int f(int[] a)`:
 ### Solution
 
 ```java
-public class Bonus2 {
-
+public class Assignment2 {
   public static void main(String[] args) {
     System.out.println(f(new int[]{1}) == 1);
     System.out.println(f(new int[]{1, 2}) == -1);

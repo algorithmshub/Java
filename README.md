@@ -2,9 +2,6 @@
 
 ## Table of Contents
 
-* DataStructures
-  * [Bags](https://github.com/algorithmshub/Java/tree/main/DataStructures/Bags)
-
 * Maths
   * [Absolute](https://github.com/algorithmshub/Java/tree/main/Maths/Absolute)
   * [AliquotSum](https://github.com/algorithmshub/Java/tree/main/Maths/AliquotSum)
@@ -19,6 +16,7 @@
 
 * Strings
   * [AllCharactersSame](https://github.com/algorithmshub/Java/tree/main/Strings/AllCharactersSame)
+  * [Alphabetical](https://github.com/algorithmshub/Java/tree/main/Strings/Alphabetical)
   * [LowerCase](https://github.com/algorithmshub/Java/tree/main/Strings/LowerCase)
   * [OppositeCase](https://github.com/algorithmshub/Java/tree/main/Strings/OppositeCase)
   * [Pangram](https://github.com/algorithmshub/Java/tree/main/Strings/Pangram)

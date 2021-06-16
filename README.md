@@ -5,6 +5,7 @@
 * Maths
   * [Absolute](https://github.com/algorithmshub/Java/tree/main/Maths/Absolute)
   * [AliquotSum](https://github.com/algorithmshub/Java/tree/main/Maths/AliquotSum)
+  * [AverageList](https://github.com/algorithmshub/Java/tree/main/Maths/AverageList)
   * [DigitSum](https://github.com/algorithmshub/Java/tree/main/Maths/DigitSum)
   * [Factorial](https://github.com/algorithmshub/Java/tree/main/Maths/Factorial)
   * [FactorialRecursion](https://github.com/algorithmshub/Java/tree/main/Maths/FactorialRecursion)

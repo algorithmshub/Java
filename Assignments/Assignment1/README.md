@@ -1,4 +1,4 @@
-# Assignment1.java
+# Assignment1
 
 Write a function that:
 

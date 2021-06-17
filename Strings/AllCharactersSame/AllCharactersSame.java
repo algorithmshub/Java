@@ -1,5 +1,4 @@
 public class AllCharactersSame {
-
   public static void main(String[] args) {
     System.out.println(isAllCharactersSame(""));
     System.out.println(!isAllCharactersSame("aab"));

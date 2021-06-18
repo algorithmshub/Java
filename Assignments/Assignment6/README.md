@@ -1,6 +1,6 @@
 # Assignment6
 
-A non-empty array **a** of length **n** is called an array of all possiblities if **it contains all numbers between 0 and (a.length - 1)** inclusive.
+A non-empty array `a` of length `n` is called an array of all possiblities if it contains all numbers between `0` and `(a.length - 1)` inclusive.
 
 Write a method that:
 
@@ -51,6 +51,7 @@ public class isAllPossibilities {
       }
       if (!f) return 0;
     }
+
     return 1;
   }
 }

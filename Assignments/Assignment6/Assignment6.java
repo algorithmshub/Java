@@ -27,6 +27,7 @@ public class isAllPossibilities {
       }
       if (!f) return 0;
     }
+
     return 1;
   }
 }

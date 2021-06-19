@@ -1,4 +1,4 @@
-public class isDivisible {
+public class Assignment9 {
   public static void main(String[] args) {
     int result = isDivisible(new int[]{3, 3, 6, 36}, 3);
     System.out.println(result);

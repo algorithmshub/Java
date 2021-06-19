@@ -18,7 +18,7 @@ You may assume (without verifying in your code) that all elements in the array a
 ### Solution
 
 ```java
-public class sumIsPower {
+public class Assignment7 {
   public static void main(String[] args) {
     int result = sumIsPower(new int[]{8, 8, 8});
     System.out.println(result);

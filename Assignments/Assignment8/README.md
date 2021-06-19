@@ -19,7 +19,7 @@ The signature of the function is `int isSquare(int n)`
 ### Solution
 
 ```java
-public class isSquare {
+public class Assignment8 {
   public static void main(String[] args) {
     int result = isSquare(4);
     System.out.println(result);

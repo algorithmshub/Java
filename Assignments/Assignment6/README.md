@@ -22,7 +22,7 @@ The function signature is `int isAllPossibilities(int[] a)`
 ### Solution
 
 ```java
-public class isAllPossibilities {
+public class Assignment6 {
   public static void main(String[] args) {
     int result = isAllPossibilities(new int[]{1, 2, 0, 3});
     System.out.println(result);

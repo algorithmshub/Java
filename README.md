@@ -36,6 +36,7 @@
   * [Assignment8](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment8)
   * [Assignment9](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment9)
   * [Assignment10](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment10)
+  * [Assignment11](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment11)
 
 <!--
 

@@ -42,6 +42,9 @@
   * [Assignment14](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment14)
   * [Assignment15](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment15)
   * [Assignment16](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment16)
+  * [Assignment17](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment17)
+  * [Assignment18](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment18)
+  * [Assignment19](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment19)
 
 <!--
 

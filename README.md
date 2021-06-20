@@ -50,6 +50,7 @@
   * [Assignment22](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment22) <!-- TODO -->
   * [Assignment23](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment23) <!-- TODO -->
   * [Assignment24](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment24)
+  * [Assignment25](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment25)
 
 <!--
 

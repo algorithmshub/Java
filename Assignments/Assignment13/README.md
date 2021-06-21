@@ -9,7 +9,7 @@ For examples:
 * `2 = 1 + 1`
 * `3 = 2 + 1`
 * `5 = 3 + 2`
-* and so on.
+* and so on
 
 Write a function named `isFibonacci` that:
 

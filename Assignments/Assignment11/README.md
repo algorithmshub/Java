@@ -1,4 +1,4 @@
-# Assignment12
+# Assignment11
 
 The sum factor of an array is defined to be the number of times that the sum of the array appears as an element of the array.
 
@@ -23,7 +23,7 @@ The function signature is `int sumFactor(int[ ] a)`
 ### Solution
 
 ```java
-public class Assignment12 {
+public class Assignment11 {
   public static void main(String[] args) {
     int result = sumFactor(new int[]{3, 0, 2, -5, 0});
     System.out.println(result);

@@ -1,4 +1,4 @@
-public class Assignment12 {
+public class Assignment11 {
   public static void main(String[] args) {
     int result = sumFactor(new int[]{3, 0, 2, -5, 0});
     System.out.println(result);

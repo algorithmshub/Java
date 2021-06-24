@@ -68,8 +68,11 @@
   * [Assignment40](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment40)
   * [Assignment41](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment41)
   * [Assignment42](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment42)
+  * [Assignment43](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment43)
 
 <!--
+
+README.md
 
 java File.java
 

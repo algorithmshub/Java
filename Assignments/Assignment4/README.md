@@ -6,8 +6,9 @@ Note that only arrays with an odd number of elements have a middle element.
 
 Write a function that:
 
-* accepts an integer array and returns 1 if it is a centered array
-* otherwise it returns 0
+* accepts an integer array
+* returns `1` if it is a centered array
+* otherwise it returns `0`
 
 The function signature is `int f(int[] a)`
 

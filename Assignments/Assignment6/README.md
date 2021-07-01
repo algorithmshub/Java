@@ -5,8 +5,8 @@ A non-empty array `a` of length `n` is called an array of all possiblities if it
 Write a method that:
 
 * accepts an integer array
-* returns 1 if the array is an array of all possiblities
-* otherwise it returns 0
+* returns `1` if the array is an array of all possiblities
+* otherwise it returns `0`
 
 The function signature is `int isAllPossibilities(int[] a)`
 

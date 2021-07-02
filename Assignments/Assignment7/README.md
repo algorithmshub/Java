@@ -15,7 +15,7 @@ You may assume (without verifying in your code) that all elements in the array a
 ### Examples
 
 * `sumIsPower({8, 8, 8, 8})` is `1` since `8 + 8 + 8 + 8 = 32 = power(2, 5)`
-* `sumIsPower({8, 8, 8})` is `0`, since `8 + 8 + 8 = 24`, not a power of `2`
+* `sumIsPower({8, 8, 8})` is `0` since `8 + 8 + 8 = 24` not a power of `2`
 
 ### Solution
 

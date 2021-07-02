@@ -1,8 +1,10 @@
 public class Assignment7 {
   public static void main(String[] args) {
-    int result = sumIsPower(new int[]{8, 8, 8});
+    int result = sumIsPower(new int[]{8, 8, 8, 8});
     System.out.println(result);
-    
+
+    result = sumIsPower(new int[]{8, 8, 8});
+    System.out.println(result);
   }
 
   static int sumIsPower(int[] a) {

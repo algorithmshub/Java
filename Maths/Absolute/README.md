@@ -1,6 +1,6 @@
 # Absolute
 
-**What is Absolute Value?**
+**What is Absolute value?**
 
 The absolute value is the non-negative value.
 

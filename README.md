@@ -108,6 +108,7 @@
   * [Assignment80](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment80)
   * [Assignment81](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment81) <!-- TODO -->
   * [Assignment82](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment82)
+  * [Assignment83](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment83)
 
 <!--
 

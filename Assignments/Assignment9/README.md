@@ -1,6 +1,6 @@
 # Assignment9
 
-Write a method named `isDivisible` that:
+Write a function named `isDivisible` that:
 
 * takes an integer array and a divisor
 * returns `1` if all its elements are divided by the divisor with no remainder

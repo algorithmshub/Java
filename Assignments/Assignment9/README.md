@@ -1,8 +1,8 @@
 # Assignment9
 
-Write a method named `isDivisible`:
+Write a method named `isDivisible` that:
 
-* that takes an integer array and a divisor
+* takes an integer array and a divisor
 * returns `1` if all its elements are divided by the divisor with no remainder
 * otherwise it returns `0`
 

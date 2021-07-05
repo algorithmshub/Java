@@ -10,7 +10,7 @@ Write a method call `repsEqual` that:
 * returns `1` if the array contains only the digits of the number in the same order that they appear in the number.
 * otherwise it returns `0`
 
-The function prototype is `int repsEqual(int[ ] a, int n)`
+The function prototype is `int repsEqual(int[] a, int n)`
 
 Note: your program must work for all values of a and n, not just those given here.
 

@@ -7,7 +7,7 @@ The digits of the number `32053` are stored in the `array {3, 2, 0, 5, 3}`.
 Write a method call `repsEqual` that:
 
 * takes an array and an integer
-* returns `1` if the array contains only the digits of the number in the same order that they appear in the number.
+* returns `1` if the array contains only the digits of the number in the same order that they appear in the number
 * otherwise it returns `0`
 
 The function prototype is `int repsEqual(int[] a, int n)`

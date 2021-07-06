@@ -6,9 +6,9 @@ Write a function named `sumFactor` that returns the sum factor of its array argu
 
 ### Examples
 
-* the sum factor of `{1, -1, 1, -1, 1, -1, 1}` is `4` because the sum of the elements of the array is `1` and `1` appears four times in the array.
-* the sum factor of `{1, 2, 3, 4}` is `0` because the sum of the elements of the array is `10` and `10` does not occur as an element of the array.
-* the sum factor of the empty array `{}` is defined to be `0`.
+* the sum factor of `{1, -1, 1, -1, 1, -1, 1}` is `4` because the sum of the elements of the array is `1` and `1` appears four times in the array
+* the sum factor of `{1, 2, 3, 4}` is `0` because the sum of the elements of the array is `10` and `10` does not occur as an element of the array
+* the sum factor of the empty array `{}` is defined to be `0`
 
 The function signature is `int sumFactor(int[] a)`
 

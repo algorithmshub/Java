@@ -16,7 +16,7 @@ Write a function named `isFibonacci` that:
 * returns `1` if its integer argument is a Fibonacci number
 * otherwise it returns `0`
 
-The signature of the function is `int isFibonacci (int n)`
+The signature of the function is `int isFibonacci(int n)`
 
 ### Solution
 

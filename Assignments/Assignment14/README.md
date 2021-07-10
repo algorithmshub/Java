@@ -2,11 +2,15 @@
 
 An array is defined to be twin paired if its even-valued elements (if any) are in ascending order and its odd-valued elements (if any) are in ascending order.
 
-The array `{-6, 12, 1, 24, 3, 5}` is twin paired because the even-valued elements `(-6, 12, 24)` are in ascending order and so are the odd-valued elements `(1, 3, 5)`.
+### Examples
 
-However, the array `{3, 2, 1}` is not twin paired because the odd numbers are not in ascending order.
+* `{-6, 12, 1, 24, 3, 5}` is twin paired because the even-valued elements `(-6, 12, 24)` are in ascending order and so are the odd-valued elements `(1, 3, 5)`
+* `{3, 2, 1}` is not twin paired because the odd numbers are not in ascending order
 
-Write a function named `isTwinPaired` that returns `1` if its array argument is twin paired, otherwise it returns `0`.
+Write a function named `isTwinPaired` that:
+
+* returns `1` if its array argument is twin paired
+* otherwise it returns `0`
 
 The function signature is `int isTwinPaired(int[] a)`
 

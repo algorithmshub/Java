@@ -118,6 +118,7 @@
   * [Assignment90](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment90)
   * [Assignment91](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment91)
   * [Assignment92](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment92)
+  * [Assignment93](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment93)
 
 <!--
 

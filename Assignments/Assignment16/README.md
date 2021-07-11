@@ -13,13 +13,13 @@ The signature is `int isStepped(int[] a)`
 
 | If the array is | return | reason |
 |:-------------|:-------------|:-------------|
-| {1, 1, 1, 5, 5, 5, 5, 8, 8, 8} | 1 | It is in ascending order. The distinct values of the array are 1, 5, 8 and there are three or more occurrences of each of these values. |
-| {1, 1, 5, 5, 5, 5, 8, 8, 8} | 0 | Even though it is in ascending order, there are only two occurrences of the value 1. |
-| {5, 5, 5, 15} | 0 | Even though it is in ascending order, there is only one occurrence of the value 15. |
-| {3, 3, 3, 2, 2, 2, 5, 5, 5} | 0 | It is not in ascending order |
-| {3, 3, 3, 2, 2, 2, 1, 1, 1} | 0 | It is not in ascending order |
-| {1, 1, 1} | 1 | It is in ascending order and there are three or more occurrences of each distinct value. In this case there is only one distinct value. |
-| {1, 1, 1, 1, 1, 1, 1} | 1 | It is in ascending order and there are three or more occurrences of each distinct value. In this case there is only one distinct value. |
+| {1, 1, 1, 5, 5, 5, 5, 8, 8, 8} | 1 | it is in ascending order. the distinct values of the array are 1, 5, 8 and there are three or more occurrences of each of these values |
+| {1, 1, 5, 5, 5, 5, 8, 8, 8} | 0 | even though it is in ascending order there are only two occurrences of the value 1 |
+| {5, 5, 5, 15} | 0 | even though it is in ascending order there is only one occurrence of the value 15 |
+| {3, 3, 3, 2, 2, 2, 5, 5, 5} | 0 | it is not in ascending order |
+| {3, 3, 3, 2, 2, 2, 1, 1, 1} | 0 | it is not in ascending order |
+| {1, 1, 1} | 1 | it is in ascending order and there are three or more occurrences of each distinct value. in this case there is only one distinct value |
+| {1, 1, 1, 1, 1, 1, 1} | 1 | it is in ascending order and there are three or more occurrences of each distinct value. in this case there is only one distinct value |
 
 ### Solution
 

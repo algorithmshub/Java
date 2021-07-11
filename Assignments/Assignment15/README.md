@@ -2,7 +2,9 @@
 
 The Fibonacci sequence of numbers is `1, 1, 2, 3, 5, 8, 13, 21, 34, ...`.
 
-The first and second numbers are `1` and after that `ni = ni-2 + ni-1` ( example: `34 = 13 + 21` ). A number in the sequence is called a Fibonacci number.
+The first and second numbers are `1` and after that `ni = ni-2 + ni-1` ( example: `34 = 13 + 21` ).
+
+A number in the sequence is called a Fibonacci number.
 
 Write a method with signature `int closestFibonacci(int n)` which returns the largest Fibonacci number that is less than or equal to its argument.
 

@@ -9,7 +9,7 @@ Write a method with signature `int closestFibonacci(int n)` which returns the la
 ### Examples
 
 * `closestFibonacci(12)` returns `8` because `8` is the largest Fibonacci number less than `12` 
-* `closestFibonacci(33)` returns `21` because `21` is the largest Fibonacci number that is `<= 33`.
+* `closestFibonacci(33)` returns `21` because `21` is the largest Fibonacci number that is `<= 33`
 * `closestFibonacci(34)` should return `34`
 
 If the argument is less than `1` return `0`.

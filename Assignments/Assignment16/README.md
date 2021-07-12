@@ -2,7 +2,7 @@
 
 An array is defined to be stepped if it is in ascending order and there are `3` or more occurrences of each distinct value in the array.
 
-Note that ascending order means `a[n]<=a[n+1]`. It does not mean `a[n]` (this is strictly ascending).
+Note that ascending order means `a[n] <= a[n+1]`. But it does not mean `a[n]` ( this is strictly ascending ).
 
 Write a function named `isStepped` that:
 

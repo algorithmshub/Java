@@ -3,22 +3,20 @@
 Write a function named `isDigitSum` that:
 
 * returns `1` if sum of all digits of the first argument is less than the second argument
-* `0` otherwise.
-
-For example, `isDigitSum(32121, 10)` would return `1` because `3+2+1+2+1 = 9 < 10`.
+* `0` otherwise
 
 ### Examples
 
+* `isDigitSum(32121, 10)` return `1` because `3 + 2 + 1 + 2 + 1 = 9 < 10`
 * `isDigitSum(32121, 9)` returns `0`
 * `isDigitSum(13, 6)` returns `1`
 * `isDigitSum(3, 3)` returns `0`
 
-Note the function should return ­`1` if either argument is negative, so `isDigitSum(-­543, 3)` returns `­-1`.
+Note that the function should return ­`1` if either argument is negative so `isDigitSum(-­543, 3)` returns `­-1`.
 
 The function signature is `int isDigitSum(int n, int m)`
 
 ### Solution
-
 
 ```java
 public class Assignment17 {

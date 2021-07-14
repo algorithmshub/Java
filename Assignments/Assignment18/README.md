@@ -13,9 +13,9 @@ The function signature is `int isTwinPrime(int n)`
 
 | number | is twin prime? |
 |:-------------|:-------------|
-| 5 | 5 is prime; 5+2 is prime |
-| 7 | 7 is prime; 7-2 is prime |
-| 53 | 53 is prime; but neither 53-2 nor 53+2 is prime |
+| 5 | 5 is prime; 5 + 2 is prime |
+| 7 | 7 is prime; 7 - 2 is prime |
+| 53 | 53 is prime; but neither 53 - 2 nor 53 + 2 is prime |
 | 9 | 9 is not prime |
 
 ```java

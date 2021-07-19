@@ -1,19 +1,21 @@
 # Assignment24
 
-A positive, non-zero number n is a factorial prime if it is equal to `factorial(n) + 1` for some `n` and it is prime.
+A positive, non-zero number `n` is a factorial prime if it is equal to `factorial(n) + 1` for some `n` and it is prime.
 
 Recall that `factorial(n)` is equal to `1 * 2 * ... * n-1 * n`.
 
-If you understand recursion, the recursive definition is:
+The recursive definition is:
 
 * `factorial(1) = 1`
 * `factorial(n) = n * factorial(n-1)`
 
-For example, `factorial(5) = 1 * 2 * 3 * 4 * 5 = 120`.
+### Example
 
-Recall that a prime number is a natural number which has exactly two distinct natural number divisors: `1` and itself.
+* `factorial(5) = 1 * 2 * 3 * 4 * 5 = 120`
 
-Write a method named `isFactorialPrime` which:
+Recall that a prime number is a natural number which has exactly two distinct natural number divisors `1` and itself.
+
+Write a method named `isFactorialPrime` that:
 
 * returns `1` if its argument is a factorial prime number
 * otherwise it returns `0`

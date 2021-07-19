@@ -1,88 +1,60 @@
-# Assignment24
+# Assignment26
 
-A positive, non-zero number n is a factorial prime if it is equal to `factorial(n) + 1` for some `n` and it is prime.
+Write a function named `largestPrimeFactor` that will return the largest prime factor of a number.
 
-Recall that `factorial(n)` is equal to `1 * 2 * ... * n-1 * n`.
+If the number is `<=1` it should return `0`.
 
-If you understand recursion, the recursive definition is:
+Recall that a prime number is `a number > 1` that is divisible only by `1` and itself, e.g. `13` is prime but `14` is not.
 
-* `factorial(1) = 1`
-* `factorial(n) = n * factorial(n-1)`
+The signature of the function is `int largestPrimeFactor(int n)`
 
-For example, `factorial(5) = 1 * 2 * 3 * 4 * 5 = 120`.
-
-Recall that a prime number is a natural number which has exactly two distinct natural number divisors: `1` and itself.
-
-Write a method named `isFactorialPrime` which:
-
-* returns `1` if its argument is a factorial prime number
-* otherwise it returns `0`
-
-The signature of the method is `int isFactorialPrime(int n)`
-
-| if n is | then function returns | reason |
+| if n is | return | reason |
 |:-------------|:-------------|:-------------|
-| 2 | 1 | because 2 is prime and is equal to factorial(1) + 1 |
-| 3 | 1 | because 3 is prime and is equal to factorial(2) + 1 |
-| 7 | 1 | because 7 prime and is equal to factorial(3) + 1 |
-| 8 | 0 | because 8 is not prime |
-| 11 | 0 | because 11 does not equal factorial(n) + 1 for any n (factorial(3)=6, factorial(4)=24) |
-| 721 | 0 | because 721 is not prime (its factors are 7 and 103) |
+| 10 | 5 | because the prime factors of 10 are 2 and 5 and 5 is the largest one. |
+| 6936 | 17 | because the distinct prime factors of 6936 are 2, 3 and 17 and 17 is the largest |
+| 1 | 0 | because n must be greater than 1 |
 
 ### Solution
 
 ```java
-public class Assignment24 {
+public class Assignment26 {
   public static void main(String[] args) {
-    int result = isFactorialPrime(2);
+    int result = largestPrimeFactor(10);
     System.out.println(result);
 
-    result = isFactorialPrime(3);
+    result = largestPrimeFactor(6936);
     System.out.println(result);
 
-    result = isFactorialPrime(7);
+    result = largestPrimeFactor(1);
     System.out.println(result);
 
-    result = isFactorialPrime(8);
-    System.out.println(result);
-
-    result = isFactorialPrime(11);
-    System.out.println(result);
-
-    result = isFactorialPrime(721);
+    result = largestPrimeFactor(11);
     System.out.println(result);
   }
 
-  static int isFactorialPrime(int n) {
-    if (isPrime(n)) {
-      int sum = 0;
-
-      for (int i = 1; i < n && sum < n; i++) {
-        sum = factorial(i) + 1;
-      }
-
-      if (sum == n)
-        return 1;
-
+  static int largestPrimeFactor(int n) {
+    if (n <= 1) 
       return 0;
+
+    int largestPrimeFactor = 2;
+
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0 && isPrime(i)) {
+        largestPrimeFactor = i;
+      }
     }
 
-    return 0;
-  }
-
-  static int factorial(int n) {
-    if (n == 0 || n == 1)
-      return 1;
-    return n * factorial(n -1);
+    return largestPrimeFactor;
   }
 
   static boolean isPrime(int n) {
     for (int i = 2; i < n; i++) {
-      if (n % i == 0)
+      if (n % i == 0) {
         return false;
+      }
     }
 
-    return n < 0 ? false : true;
+    return n > 0;
   }
 }
 ```

@@ -1,76 +1,62 @@
-# Assignment56
+# Assignment58
 
-An array is defined to be a Bean array if it meets the following conditions:
+A Bean array is defined to be an integer array where for every value n in the array, there is also an element 2n, 2n+1 or n/2 in the array.
 
-* if it contains a `9` then it also contains a `13`
-* if it contains a `7` then it does not contain a `16`
+### Example
 
-So:
+Bean array:
 
-The following arrays are Bean arrays:
+* `{4, 9, 8}` is a Bean array because for `4`, `8` is present; for `9`, `4` is present; for `8`, `4` is present.
+* `{2, 2, 5, 11, 23}`, `{7, 7, 3, 6}` and `{0}` are a Bean array
 
-* `{1, 2, 3, 9, 6, 13}` and `{3, 4, 6, 7, 13, 15}`
-* `{1, 2, 3, 4, 10, 11, 12`} and `{3, 6, 9, 5, 7, 13, 6, 17}`
+Not a Bean array:
 
-The following arrays are not Bean arrays:
-
-* `{ 9, 6, 18}` (contains a `9` but no `13`)
-* `{4, 7, 16}` (contains both a `7` and a `16`)
+* `{3, 8, 4}` is not a Bean array because of the value `3` which requires that the array contains either the value `6`, `7` or `1` and none of these values are in the array.
 
 Write a function named `isBean` that:
 
 * returns `1` if its array argument is a Bean array
-* otherwise it returns `0`
+* otherwise it returns a `0`
 
 The function signature is `int isBean(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment56 {
+public class Assignment58 {
   public static void main(String[] args) {
-    int result = isBean(new int[]{1, 2, 3, 9, 6, 13});
+    int result = isBean(new int[]{4, 9, 8});
     System.out.println(result);
 
-    result = isBean(new int[]{3, 4, 6, 7, 13, 15});
+    result = isBean(new int[]{2, 2, 5, 11, 23});
     System.out.println(result);
 
-    result = isBean(new int[]{1, 2, 3, 4, 10, 11, 12});
+    result = isBean(new int[]{7, 7, 3, 6});
     System.out.println(result);
 
-    result = isBean(new int[]{3, 6, 9, 5, 7, 13, 6, 17});
+    result = isBean(new int[]{0});
     System.out.println(result);
 
-    result = isBean(new int[]{9, 6, 18});
-    System.out.println(result);
-
-    result = isBean(new int[]{4, 7, 16});
+    result = isBean(new int[]{3, 8, 4});
     System.out.println(result);
   }
 
   static int isBean(int[] a) {
-    boolean a9 = false;
-    boolean a13 = false;
-    boolean a7 = false;
-    boolean a16 = false;
-
     for (int i = 0; i < a.length; i++) {
-      if (a[i] == 9) {
-        a9 = true;
-      } else if (a[i] == 13) {
-        a13 = true;
-      } else if (a[i] == 7) {
-        a7 = true;
-      } else if (a[i] == 16) {
-        a16 = true;
+      boolean isBean = false;
+
+      for (int j = 0; j < a.length; j++) {
+        if ((a[i] == (a[j] * 2)) || (a[i] == (a[j] * 2 +1)) || (a[i] == (a[j] / 2))) {
+          isBean = true;
+        }
+      }
+
+      if (!isBean) {
+        return 0;
       }
     }
 
-    if ((a9 && a13) || (a7 && !a16) || (!a9 && !a7)) {
-      return 1;
-    }
-
-    return 0;
+    return 1;
   }
 }
 ```

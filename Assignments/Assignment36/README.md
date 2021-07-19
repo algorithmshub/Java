@@ -1,53 +1,69 @@
-# Assignment36
+# Assignment38
 
-Write a function named `countDigit` that returns the number of times that a given digit appears in a positive number.
+Define a stacked number to be a number that is the sum of the first `n` positive integers for some `n`.
 
-For example `countDigit(32121, 1)` would return `2` because there are two `1s` in `32121`.
+The first `5` stacked numbers are:
+
+* `1 = 1`
+* `3 = 1 + 2`
+* `6 = 1 + 2 + 3`
+* `10 = 1 + 2 + 3+ 4`
+* `15 = 1 + 2 + 3 + 4 + 5`
+
+Note that from the above we can deduce that `7, 8,` and `9` are not stacked numbers because they cannot be the sum of any sequence of positive integers that start at `1`.
+
+Write a function named `isStacked` that:
+
+* returns `1` if its argument is stacked.
+* otherwise it returns `0`.
 
 ### Examples
 
-* `countDigit(33331, 3)` returns `4`
-* `countDigit(33331, 6)` returns `0`
-* `countDigit(3, 3)` returns `1`
+* `isStacked(10)` should return `1` 
+* `isStacked(7)` should return `0`
 
-The function should return `­1` if either argument is `negative`, so `countDigit(­543, 3)` returns ­`1`.
-
-The function signature is `int countDigit(int n, int digit)`
-
-Hint: Use modulo base 10 and integer arithmetic to isolate the digits of the number.
+Its signature is `int isStacked(int n)`
 
 ### Solution
 
 ```java
-public class Assignment36 {
+public class Assignment38 {
   public static void main(String[] args) {
-    int result = countDigit(33331, 3);
+    int result = isStacked(1);
     System.out.println(result);
 
-    result = countDigit(33331, 6);
+    result = isStacked(3);
     System.out.println(result);
 
-    result = countDigit(3, 3);
+    result = isStacked(6);
+    System.out.println(result);
+
+    result = isStacked(10);
+    System.out.println(result);
+
+    result = isStacked(15);
+    System.out.println(result);
+
+    result = isStacked(7);
+    System.out.println(result);
+
+    result = isStacked(8);
+    System.out.println(result);
+
+    result = isStacked(9);
     System.out.println(result);
   }
 
-  static int countDigit(int n, int digit) {
-    if (n < 0 || digit < 0)
-      return 0;
+  static int isStacked(int n) {
+    int sum = 0;
 
-    int countDigit = 0;
-
-    while (n > 0) {
-      int lastDigit = n % 10;
-      
-      if (lastDigit == digit) {
-        countDigit++;
-      }
-
-      n /= 10;
+    for (int i = 1; i <= n; i++) {
+      sum += i;
+      if (sum == n)
+        return 1;
     }
 
-    return countDigit;
+    return 0;
   }
 }
 ```

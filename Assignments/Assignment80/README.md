@@ -1,76 +1,65 @@
-# Assignment80
+# Assignment82
 
-An array is called layered if its elements are in ascending order and each element appears two or more times.
+Write a function named `largestDifferenceOfEvens` which returns the largest difference between even valued elements of its array argument.
 
-For example `{1, 1, 2, 2, 2, 3, 3}` is layered but `{1, 2, 2, 2, 3, 3}` and `{3, 3, 1, 1, 1, 2, 2}` are not.
+### Example
 
-Write a method named `isLayered` that:
+`largestDifferenceOfEvens(new int[ ]{-2, 3, 4, 9})` should:
 
-* accepts an integer array
-* returns `1` if the array is layered
-* otherwise it returns `0`
+* return `6 = (4 - (-2))`
+* return `-1` if there are fewer than `2` even numbers in the array
 
-The function signature is `int isLayered(int[] a)`
+The function signature is `int largestDifferenceOfEvens(int[] a)`
 
-| If the input array is | return |
-|:-------------|:-------------|
-| {1, 1, 2, 2, 2, 3, 3} | 1 |
-| {3, 3, 3, 3, 3, 3, 3} | 1 |
-| {1, 2, 2, 2, 3, 3} | 0 (because there is only one occurence of the value 1) |
-| {2, 2, 2, 3, 3, 1, 1} | 0 (because values are not in ascending order) |
-| {2} | 0 |
-| {} | 0 |
+| a is | return | reason |
+|:-------------|:-------------|:-------------|
+| {1, 3, 5, 9} | -1 | because there are no even numbers |
+| {1, 18, 5, 7, 33} | -1 | because there is only one even number 18 |
+| {2, 2, 2, 2} | 0 | because 2-2 == 0 |
+| {1, 2, 1, 2, 1, 4, 1, 6, 4} | 4 | because 6 - 2 == 4 |
 
 ### Solution
 
 ```java
-public class Assignment80 {
+public class Assignment82 {
   public static void main(String[] args) {
-    int result = isLayered(new int[]{1, 1, 2, 2, 2, 3, 3});
+    int result = largestDifferenceOfEvens(new int[]{-2, 3, 4, 9});
     System.out.println(result);
 
-    result = isLayered(new int[]{3, 3, 3, 3, 3, 3, 3});
+    result = largestDifferenceOfEvens(new int[]{1, 3, 5, 9});
     System.out.println(result);
 
-    result = isLayered(new int[]{1, 2, 2, 2, 3, 3});
+    result = largestDifferenceOfEvens(new int[]{1, 18, 5, 7, 33});
     System.out.println(result);
 
-    result = isLayered(new int[]{2, 2, 2, 3, 3, 1, 1});
+    result = largestDifferenceOfEvens(new int[]{2, 2, 2, 2});
     System.out.println(result);
 
-    result = isLayered(new int[]{2});
-    System.out.println(result);
-
-    result = isLayered(new int[]{});
+    result = largestDifferenceOfEvens(new int[]{1, 2, 1, 2, 1, 4, 1, 6, 4});
     System.out.println(result);
   }
 
-  static int isLayered(int[] a) {
-    if (a.length <= 1) {
-      return 0;
-    }
+  static int largestDifferenceOfEvens(int[] a) {
+    boolean even = false;
+    int largestDiff = 0;
 
-    int count = 1;
-
-    for (int i = 0; i < a.length - 1; i++) {
-      if (a[i] > a[i + 1]){
-        return 0;
-      }
-
-      if (a[i] == a[i + 1]) {
-        count++;
-      }
-
-      if (a[i] != a[i + 1]) {
-        if (count < 2) {
-          return 0;
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] % 2 == 0) {
+        for (int j = i + 1; j < a.length; j++) {
+          if (a[j] % 2 == 0) {
+            even = true;
+            int diff = a[i] > a[j] ? a[i] - a[j] : a[j] - a[i];
+            largestDiff = diff > largestDiff ? diff : largestDiff;
+          }
         }
+      }
 
-        count = 1;
+      if (!even && i == a.length -1) {
+        return -1;
       }
     }
 
-    return 1;
+    return largestDiff;
   }
 }
 ```

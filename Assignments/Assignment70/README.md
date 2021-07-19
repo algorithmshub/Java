@@ -1,79 +1,79 @@
-# Assignment70
+# Assignment72
 
-An array is defined to be odd-heavy if it contains at least one odd element and every odd element is greater than every even element.
+An array is defined to be a Nice array if the sum of the primes in the array is equal to the first element of the array.
 
-So `{11, 4, 9, 2, 8}` is odd-heavy because the two odd elements (`11` and `9`) are greater than all the even elements.
+If there are no primes in the array the first element must be `0`.
 
-And `{11, 4, 9, 2, 3, 10}` is not odd-heavy because the even element `10` is greater than the odd element `9`.
+`{21, 3, 7, 9, 11, 4, 6}` is a Nice array because `3, 7, 11` are the primes in the array and they sum to `21` which is the first element of the array.
 
-Write a function called `isOddHeavy` that:
+`{13, 4, 4,4, 4}` is also a Nice array because the sum of the primes is `13` which is also the first element.
 
-* accepts an integer array
-* returns `1` if the array is odd-heavy
+Other Nice arrays are `{10, 5, 5}`, `{0, 6, 8, 20}` and `{3}`.
+
+`{8, 5, ­5, 5, 3}` is not a Nice array because the sum of the primes is `5+5+3 = 13` but the first element of the array is `8`.
+
+Note that ­5 is not a prime because prime numbers are positive.
+
+Write a function named `isNiceArray` that:
+
+* returns `1` if its integer array argument is a Nice array
 * otherwise it returns `0`
 
-### Examples
+The function signature is `int isNiceArray(int[] a)`
 
-* `{1}` is odd-heavy
-* `{2}` is not odd-heavy
-* `{1, 1, 1, 1}` is odd-heavy
-* `{2, 4, 6, 8, 11}` is odd-heavy
-* `{-2, -4, -6, -8, -11}` is not odd-heavy
+You may assume that a function named isPrime exists that:
 
-The function signature is `int isOddHeavy(int[] a)`
+* returns `1` if its int argument is a prime
+* otherwise it returns `0`
 
 ### Solution
 
 ```java
-public class Assignment70 {
+public class Assignment72 {
   public static void main(String[] args) {
-    int result = isOddHeavy(new int[]{11, 4, 9, 2, 8});
+    int result = isNice(new int[]{21, 3, 7, 9, 11, 4, 6});
     System.out.println(result);
 
-    result = isOddHeavy(new int[]{11, 4, 9, 2, 3, 10});
+    result = isNice(new int[]{13, 4, 4, 4, 4});
     System.out.println(result);
 
-    result = isOddHeavy(new int[]{1});
+    result = isNice(new int[]{10, 5, 5});
     System.out.println(result);
 
-    result = isOddHeavy(new int[]{2});
+    result = isNice(new int[]{0, 6, 8, 20});
     System.out.println(result);
 
-    result = isOddHeavy(new int[]{1, 1, 1, 1, 1, 1});
+    result = isNice(new int[]{3});
     System.out.println(result);
 
-    result = isOddHeavy(new int[]{2, 4, 6, 8, 11});
-    System.out.println(result);
-
-    result = isOddHeavy(new int[]{-2, -4, -6, -8, -11});
+    result = isNice(new int[]{8, 5, -5, 5, 3});
     System.out.println(result);
   }
 
-  static int isOddHeavy(int[] a) {
-    boolean isOddHeavy = false;
-
-    int smallestOdd = Integer.MAX_VALUE;
-    int largestEven = Integer.MIN_VALUE;
+  static int isNice(int[] a) {
+    int sum = 0;
 
     for (int i = 0; i < a.length; i++) {
-      if (a[i] % 2 != 0) {
-        isOddHeavy = true;
-
-        if (a[i] < smallestOdd) {
-          smallestOdd = a[i];
-        }
-      } else {
-        if (a[i] > largestEvent) {
-          largestEvent = a[i];
-        }
+      if (isPrime(a[i]) == 1) {
+        sum += a[i];
       }
     }
 
-    if (isOddHeavy && smallestOdd > largestEvent) {
+    if (sum == a[0]) {
       return 1;
     }
 
     return 0;
+  }
+
+  static int isPrime(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return 0;
+      }
+    }
+
+    return n > 1 ? 1 : 0;
   }
 }
 ```

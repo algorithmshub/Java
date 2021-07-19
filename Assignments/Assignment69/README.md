@@ -1,84 +1,62 @@
-# Assignment69
+# Assignment71
 
-Define an array to be one-balanced if begins with zero or more 1s followed by zero or more non-1s and concludes with zero or more 1s.
+A Nice array is defined to be an array where for every value `n` in the array, there is also an element `n­`1 or `n+1` in the array.
 
-Write a function named `isOneBalanced` that:
+### Example
 
-* returns `1` if its array argument is one-balanced
-* otherwise it returns `0`
+`{2, 10, 9, 3}` is a Nice array because:
 
-The function signature is `int isOneBalanced(int[] a)`
+* `2 = 3-­1`
+* `10 = 9+1`
+* `3 = 2+1`
+* `9 = 10-1`
 
-| a is | the function return | reason |
-|:-------------|:-------------|:-------------|
-| {1, 1, 1, 2, 3, -18, 45, 1} | 1 | because it begins with three 1s, followed by four non-1s and ends with one 1 and 3+1 == 4 |
-| {1, 1, 1, 2, 3, -18, 45, 1, 0} | 0 | because the 0 starts another sequence of non-1s. There can be only one sequence of non-1s. |
-| {1, 1, 2, 3, 1, -18, 26, 1} | 0 | because there are two sequences of non-1s ({2, 3} and {-18, 26} |
-| {} | 1 | because 0 (# of beginning 1s) + 0 (# of ending 1s) = 0 (# of non-1s) |
-| {3, 4, 1, 1} | 1 | because 0 (# of beginning 1s) + 2 (# of ending 1s) = 2 (# of non-1s) |
-| {1, 1, 3, 4} | 1 | because 2 (# of beginning 1s) + 0 (# of ending 1s) = 2 (# of non-1s) |
-| {3, 3, 3, 3, 3, 3} | 0 | because 0 (# of beginning 1s) + 0 (# of ending 1s) != 6 (# of non-1s) |
-| {1, 1, 1, 1, 1, 1} | 0 | because 6 (# of beginning 1s) + 0 (# of ending 1s) != 0 (# of non-1s) |
+Other Nice arrays include `{2, 2, 3, 3, 3}`, `{1, 1, 1, 2, 1, 1}` and `{0, ­1, 1}`.
+
+`{3, 4, 5, 7}` is not a Nice array because of the value `7` which requires that the array contains either the value `6` `(7­-1)` or `8` `(7+1)` but neither of these values are in the array.
+
+Write a function named `isNice` that:
+
+* returns `1` if its array argument is a Nice array
+* otherwise it returns a `0`
+
+The function signature is `int isNice(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment69 {
+public class Assignment71 {
   public static void main(String[] args) {
-    int result = isOneBalanced(new int[]{1, 1, 1, 2, 3, -18, 45, 1});
+    int result = isNice(new int[]{2, 10, 9, 3});
     System.out.println(result);
 
-    result = isOneBalanced(new int[]{1, 1, 1, 2, 3, -18, 45, 1, 0});
+    result = isNice(new int[]{2, 2, 3, 3, 3});
     System.out.println(result);
 
-    result = isOneBalanced(new int[]{1, 1, 2, 3, 1, -18, 26, 1});
+    result = isNice(new int[]{1, 1, 1, 2, 1, 1});
     System.out.println(result);
 
-    result = isOneBalanced(new int[]{});
+    result = isNice(new int[]{0, -1, 1});
     System.out.println(result);
 
-    result = isOneBalanced(new int[]{3, 4, 1, 1});
-    System.out.println(result);
-
-    result = isOneBalanced(new int[]{1, 1, 3, 4});
-    System.out.println(result);
-
-    result = isOneBalanced(new int[]{3, 3, 3, 3, 3, 3});
-    System.out.println(result);
-
-    result = isOneBalanced(new int[]{1, 1, 1, 1, 1, 1});
+    result = isNice(new int[]{3, 4, 5, 7});
     System.out.println(result);
   }
 
-  static int isOneBalanced(int[] a) {
-    if (a.length == 0) {
-      return 1;
-    }
-
-    int total1s = 0;
-    int totalNon1s = 0;
-    boolean non1Start = false;
-    boolean non1End = false;
-
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] == 1) {
-        if (non1Start) {
-          non1End = true;
+  static int isNice(int[] a) {
+    for (int i = 0 ; i < a.length; i++) {
+      boolean isNice = false;
+      
+      for (int j = 0; j < a.length; j++) {
+        if ((a[i] == a[j] - 1) || (a[i] == a[j] + 1)) {
+          isNice = true;
+          break;
         }
-        
-        total1s++;
-      } else {
-        if (non1End) {
-          return 0;
-        }
-
-        non1Start = true;
-        totalNon1s++;
       }
-    }
 
-    if (total1s != totalNon1s) {
-      return 0;
+      if (!isNice) {
+        return 0;
+      }
     }
 
     return 1;

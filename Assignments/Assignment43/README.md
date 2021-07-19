@@ -1,58 +1,55 @@
-# Assignment43
+# Assignment45
 
-A number is called digit-increasing if it is equal to `n + nn + nnn + ...` for some digit n between `1` and `9`.
+An array is said to be dual if it has an even number of elements and each pair of consecutive even and odd elements sum to the same value.
 
-For example `24` is digit-increasing because it equals `2 + 22` (here `n = 2`).
+Write a function named `isDual` that:
 
-Write a function called `isDigitIncreasing` that:
-
-* returns `1` if its argument is digit-increasing
+* accepts an array of integers
+* returns `1` if the array is dual
 * otherwise it returns `0`
 
-The signature of the method is `int isDigitIncreasing(int n)`
+### Examples
 
-| if n is | then function returns | reason |
-|:-------------|:-------------|:-------------|
-| 7 | 1 | because 7 = 7 (here n is 7) |
-| 36 | 1 | because 36 = 3 + 33 |
-| 984 | 1 | because 984 = 8 + 88 + 888 |
-| 7404 | 1 | because 7404 = 6 + 66 + 666 + 6666 |
+* `{1, 2, 3, 0}` is a dual array (because 1+2 = 3+0 = 3)
+* `{1, 2, 2, 1, 3, 0}` is a dual array (because 1+2 = 2+1 = 3+0 = 3)
+* `{1, 1, 2, 2}` is not a dual array (because 1+1 is not equal to 2+2)
+* `{1, 2, 1}` is not a dual array (because array does not have an even number of elements)
+* `{}` is a dual array
+
+The function signature is `int isDual(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment43 {
+public class Assignment45 {
   public static void main(String[] args) {
-    int result = isDigitIncreasing(7);
+    int result = isDual(new int[]{1, 2, 3, 0});
     System.out.println(result);
 
-    result = isDigitIncreasing(36);
+    result = isDual(new int[]{1, 2, 2, 1, 3, 0});
     System.out.println(result);
 
-    result = isDigitIncreasing(984);
+    result = isDual(new int[]{1, 1, 2, 2});
     System.out.println(result);
 
-    result = isDigitIncreasing(7404);
+    result = isDual(new int[]{1, 2, 1});
     System.out.println(result);
   }
 
-  static int isDigitIncreasing(int n) {
-    for (int i = 1; i <= 9; i++) {
-      int sum = 0;
-      int product = 0;
+  static int isDual(int[] a) {
+    if (a.length % 2 != 0) {
+      return 0;
+    }
 
-      while (sum < n) {
-        product = (product * 10) + i;
-        sum += product;
-        System.out.println(sum);
-      }
+    int sum = a[0] + a[1];
 
-      if (n == sum) {
-        return 1;
+    for (int i = 0; i < a.length - 1; i += 2) {
+      if (sum != a[i] + a[i + 1]) {
+        return 0;
       }
     }
 
-    return 0;
+    return 1;
   }
 }
 ```

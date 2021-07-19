@@ -1,60 +1,66 @@
-# Assignment47
+# Assignment49
 
-A positive number `n` is consecutive-factored if and only if it has factors, `i` and `j` where `i > 1`, `j > 1` and `j = i + 1`.
+An array is defined to be odd­valent if it meets the following two conditions:
 
-Write a function named `isConsecutiveFactored` that:
+* it contains a value that occurs more than once
+* it contains an odd number
 
-* returns `1` if its argument is consecutive-factored
+# Examples
+
+* `{9, 3, 4, 9, 1}` is odd­valent because `9` appears more than once and 3 is odd
+* other odd­ valent arrays are `{3, 3, 3, 3}` and `{8, 8, 8, 4, 4, 7, 2}`
+
+The following arrays are not odd­valent:
+
+* `{1, 2, 3, 4, 5}` ­ no value appears more than once
+* `{2, 2, 2, 4, 4}` ­ there are duplicate values but there is no odd value
+
+Write a function name `isOddValent` that:
+
+* returns `1` if its array argument is odd­valent
 * otherwise it returns `0`
 
-The function signature is `int isConsectiveFactored(int n)`
-
-| if n is | return | reason |
-|:-------------|:-------------|:-------------|
-| 24 | 1 | 24 = 2*3*4 and 3 = 2 + 1 |
-| 105 | 0 | 105 = 3*5*7 and 5 != 3+1 and 7 != 5+1 |
-| 90 | 1 | factors of 90 include 2 and 3 and 3 = 2 + 1 |
-| 23 | 0 | has only 1 factor that is not equal to 1 |
-| 15 | 0 | 15 = 3*5 and 5 != 3 + 1 |
-| 2 | 0 | 2 = 1*2, 2 = 1 + 1 but factor 1 is not greater than 1 |
-| 0 | 0 | n has to be positive |
-| -12 | 0 | n has to be positive |
+The function prototype is `int isOddValent (int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment47 {
+public class Assignment49 {
   public static void main(String[] args) {
-    int result = isConsectiveFactored(24);
+    int result = isOddValent(new int[]{9, 3, 4, 9, 1});
     System.out.println(result);
 
-    result = isConsectiveFactored(105);
+    result = isOddValent(new int[]{3, 3, 3, 3});
     System.out.println(result);
 
-    result = isConsectiveFactored(90);
+    result = isOddValent(new int[]{8, 8, 8, 4, 4, 7, 2});
     System.out.println(result);
 
-    result = isConsectiveFactored(23);
+    result = isOddValent(new int[]{1, 2, 3, 4, 5});
     System.out.println(result);
 
-    result = isConsectiveFactored(15);
-    System.out.println(result);
-
-    result = isConsectiveFactored(2);
-    System.out.println(result);
-
-    result = isConsectiveFactored(0);
-    System.out.println(result);
-
-    result = isConsectiveFactored(-12);
+    result = isOddValent(new int[]{2, 2, 2, 4, 4});
     System.out.println(result);
   }
 
-  static int isConsectiveFactored(int n) {
-    for (int i = 2; i < n; i++) {
-      if (n % i == 0 && n % (i + 1) == 0) {
-        return 1;
+  static int isOddValent(int[] a) {
+    boolean occurrence = false;
+    boolean odd = false;
+    
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] % 2 != 0) {
+        odd = true;
       }
+
+      for (int j = i + 1; j < a.length; j++) {
+        if (a[i] == a[j]) {
+          occurrence = true;
+          break;
+        }
+      }
+
+      if (odd && occurrence)
+        return 1;
     }
 
     return 0;

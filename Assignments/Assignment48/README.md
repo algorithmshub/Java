@@ -1,61 +1,37 @@
-# Assignment48
+# Assignment50
 
-A normal number is defined to be one that has no odd factors, except for `1` and possibly itself.
+An Evens number is an integer whose digits are all even.
 
-Write a method named `isNormal` that:
+For example `2426` is an Evens number but `3224` is not.
 
-* returns `1` if its integer argument is normal
+Write a function named isEvens that:
+
+* returns `1` if its integer argument is an Evens number
 * otherwise it returns `0`
 
-# Examples:
-
-* `1, 2, 3, 4, 5, 7, 8` are normal numbers
-* `6` and `9` are not normal numbers since 3 is an odd factor
-* `10` is not a normal number since `5` is an odd factor
-
-The function signature is `int isNormal(int n)`
+The function signature is `int isEvens (int n)`
 
 ### Solution
 
 ```java
-public class Assignment48 {
+public class Assignment50 {
   public static void main(String[] args) {
-    int result = isNormal(1);
+    int result = isEvens(2426);
     System.out.println(result);
 
-    result = isNormal(2);
-    System.out.println(result);
-
-    result = isNormal(3);
-    System.out.println(result);
-
-    result = isNormal(4);
-    System.out.println(result);
-
-    result = isNormal(5);
-    System.out.println(result);
-
-    result = isNormal(6);
-    System.out.println(result);
-
-    result = isNormal(7);
-    System.out.println(result);
-
-    result = isNormal(8);
-    System.out.println(result);
-
-    result = isNormal(9);
+    result = isEvens(3224);
     System.out.println(result);
   }
 
-  static int isNormal(int n) {
-    for (int i = 2; i < n; i++) {
-      int factor = 0;
-      if (n % i ==0)
-        factor = i;
-
-      if (factor % 2 != 0)
+  static int isEvens(int n) {
+    while (n > 0) {
+      int lastDigit = n % 10;
+      
+      if (lastDigit % 2 != 0) {
         return 0;
+      }
+
+      n /= 10;
     }
 
     return 1;

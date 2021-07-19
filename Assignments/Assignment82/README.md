@@ -1,65 +1,48 @@
-# Assignment82
+# Assignment84
 
-Write a function named `largestDifferenceOfEvens` which returns the largest difference between even valued elements of its array argument.
+Write a function fill with signature `int[] fill(int[] arr, int k, int n)` that:
 
-### Example
+* returns an integer array `arr2` of length `n` whose first `k` elements are the same as the first `k` elements of `arr`, and whose remaining elements consist of repeating blocks of the first `k` elements.
 
-`largestDifferenceOfEvens(new int[ ]{-2, 3, 4, 9})` should:
+You can assume array `arr` has at least `k` elements. The function should return null if either `k` or `n` is not positive.
 
-* return `6 = (4 - (-2))`
-* return `-1` if there are fewer than `2` even numbers in the array
+### Examples
 
-The function signature is `int largestDifferenceOfEvens(int[] a)`
-
-| a is | return | reason |
-|:-------------|:-------------|:-------------|
-| {1, 3, 5, 9} | -1 | because there are no even numbers |
-| {1, 18, 5, 7, 33} | -1 | because there is only one even number 18 |
-| {2, 2, 2, 2} | 0 | because 2-2 == 0 |
-| {1, 2, 1, 2, 1, 4, 1, 6, 4} | 4 | because 6 - 2 == 4 |
+* `fill({1, 2, 3, 5, 9, 12, ­2, ­1}, 3, 10)` returns `{1, 2, 3, 1, 2, 3, 1, 2, 3, 1}`
+* `fill({4, 2, ­3, 12}, 1, 5)` returns `{4, 4, 4, 4, 4}`
+* `fill({2, 6, 9, 0, ­3}, 0, 4)` returns `null`
 
 ### Solution
 
 ```java
-public class Assignment82 {
+import java.util.Arrays;
+
+public class Assignment84 {
   public static void main(String[] args) {
-    int result = largestDifferenceOfEvens(new int[]{-2, 3, 4, 9});
-    System.out.println(result);
+    int result[] = fill(new int[]{1, 2, 3, 5, 9, 12, -2, -1}, 3, 10);
+    System.out.println(Arrays.toString(result));
 
-    result = largestDifferenceOfEvens(new int[]{1, 3, 5, 9});
-    System.out.println(result);
+    result = fill(new int[]{4, 2, -3, 12}, 1, 5);
+    System.out.println(Arrays.toString(result));
 
-    result = largestDifferenceOfEvens(new int[]{1, 18, 5, 7, 33});
-    System.out.println(result);
-
-    result = largestDifferenceOfEvens(new int[]{2, 2, 2, 2});
-    System.out.println(result);
-
-    result = largestDifferenceOfEvens(new int[]{1, 2, 1, 2, 1, 4, 1, 6, 4});
-    System.out.println(result);
+    result = fill(new int[]{2, 6, 9, 0, -3}, 0, 4);
+    System.out.println(Arrays.toString(result));
   }
 
-  static int largestDifferenceOfEvens(int[] a) {
-    boolean even = false;
-    int largestDiff = 0;
+  static int[] fill(int[] arr, int k, int n) {
+    if (k <= 0 || n <= 0)
+      return null;
 
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] % 2 == 0) {
-        for (int j = i + 1; j < a.length; j++) {
-          if (a[j] % 2 == 0) {
-            even = true;
-            int diff = a[i] > a[j] ? a[i] - a[j] : a[j] - a[i];
-            largestDiff = diff > largestDiff ? diff : largestDiff;
-          }
-        }
-      }
+    int[] arr2 = new int[n];
 
-      if (!even && i == a.length -1) {
-        return -1;
+    for (int i = 0; i < n; ) {
+      for (int j = 0; j < k && i < n; j++) {
+        arr2[i] = arr[j];
+        i++;
       }
     }
 
-    return largestDiff;
+    return arr2;
   }
 }
 ```

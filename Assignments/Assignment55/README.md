@@ -1,75 +1,69 @@
-# Assignment55
+# Assignment57
 
-The number `198` has the property that `198 = 11 + 99 + 88, ...`, if each of its digits is concatenated twice and then summed, the result will be the original number.
+A Bean array is defined to be an array where for every value `n` in the array, there is also an element `n­1` or `n+1` in the array.
 
-It turns out that `198` is the only number with this property. However, the property can be generalized so that each digit is concatenated n times and then summed.
+### Example
 
-For example, `2997 = 222 + 999 + 999 + 777` and here each digit is concatenated three times.
+`{2, 10, 9, 3}` is a Bean array because:
 
-Write a function named `checkContenatedSum` that tests if a number has this generalized property.
+* `2 = 3-­1`
+* `10 = 9+1`
+* `3 = 2+1`
+* `9 = 10-­1`
 
-The signature of the function is `int checkConcatenatedSum(int n, int catlen)` where `n` is the number and `catlen` is the number of times to concatenate each digit before summing.
+Other Bean arrays include `{2, 2, 3, 3, 3}`, `{1, 1, 1, 2, 1, 1}` and `{0, ­1, 1}`.
 
-The function returns `1` if `n` is equal to the sum of each of its digits contenated catlen times.
+The array `{3, 4, 5, 7}` is not a Bean array because of the value `7` which requires that the array contains either the value `6` `(7­-1)` or `8` `(7+1)` but neither of these values are in the A Bunker array is defined to be an array in which at least one odd number is immediately followed by a prime number.
 
-Otherwise, it returns `0`.
+So `{4, 9, 6, 7, 3}` is a Bunker array because the odd number `7` is immediately followed by the prime number `3`.
 
-You may assume that `n` and `catlen` are greater than zero.
+But `{4, 9, 6, 15, 21}` is not a Bunker array because none of the odd numbers are immediately followed by a prime number array.
 
-Hint: Use integer and modulo `10` arithmetic to sequence through the digits of the argument.
+Write a function named `isBean` that:
 
-| if n is | and catlen is | return | reason |
-|:-------------|:-------------|:-------------|:-------------|
-| 198 | 2 | 1 | because 198 == 11 + 99 + 88 |
-| 198 | 3 | 0 | because 198 != 111 + 999 + 888 |
-| 2997 | 3 | 1 | because 2997 == 222 + 999 + 999 + 777 |
-| 2997 | 2 | 0 | because 2997 != 22 + 99 + 99 + 77 |
-| 13332 | 4 | 1 | because 13332 = 1111 + 3333 + 3333 + 3333 + 2222 |
-| 9 | 1 | 1 | because 9 == 9 |
+* returns `1` if its array argument is a Bean array
+* otherwise it returns a `0`
+
+The function signature is `int isBean(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment55 {
+public class Assignment57 {
   public static void main(String[] args) {
-    int result = checkConcatenatedSum(198, 2);
+    int result = isBean(new int[]{2, 10, 9, 3});
     System.out.println(result);
 
-    result = checkConcatenatedSum(198, 3);
+    result = isBean(new int[]{2, 2, 3, 3, 3});
     System.out.println(result);
 
-    result = checkConcatenatedSum(2997, 3);
+    result = isBean(new int[]{1, 1, 1, 2, 1, 1});
     System.out.println(result);
 
-    result = checkConcatenatedSum(2997, 2);
+    result = isBean(new int[]{0, -1, 1});
     System.out.println(result);
 
-    result = checkConcatenatedSum(13332, 4);
-    System.out.println(result);
-
-    result = checkConcatenatedSum(9, 1);
+    result = isBean(new int[]{3, 4, 5, 7});
     System.out.println(result);
   }
 
-  static int checkConcatenatedSum(int n, int catlen) {
-    int tmpN = n;
-    int sum = 0;
+  static int isBean(int[] a) {
+    for (int i = 0; i < a.length; i++) {
+      boolean isBean1 = false;
 
-    while (tmpN > 0) {
-      int lastDigit = tmpN % 10;
-
-      for (int i = 1, j = 1; j <= catlen; i *= 10, j++) {
-        sum += lastDigit * i;
+      for (int j = 0; j < a.length; j++) {
+        if ((a[i] == (a[j] - 1)) || (a[i] == (a[j] + 1))) {
+          isBean1 = true;
+          break;
+        }
       }
 
-      tmpN /= 10;
+      if (!isBean1) {
+        return 0;
+      }
     }
 
-    if (n == sum) {
-      return 1;
-    }
-
-    return 0;
-  }  
+    return 1;
+  }
 }
 ```

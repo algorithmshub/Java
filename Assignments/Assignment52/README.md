@@ -1,52 +1,65 @@
-# Assignment52
+# Assignment54
 
-A balanced array is defined to be an array where for every value `n` in the array, `n` also is in the array.
+An integer is defined to be "Continuous factored" if it can be expressed as the product of two or more continuous integers greater than `1`.
 
 ### Examples
 
-* `{­-2, 3, 2, -­3}` is a balanced array
-* `{­-2, 2, 2, 2}` is a balanced array
-* `{-­5, 2, -2}` is not because `5` is not in the array
+"Continuous factored" integers are:
 
-Write a function named `isBalanced` that:
+* `6 = 2 * 3`
+* `60 = 3 * 4 * 5`
+* `120 = 4 * 5 * 6`
+* `90 = 9 * 10`
 
-* returns `1` if its array argument is a balanced array
-* otherwise it returns `0`
+### Examples
 
-The function signature is `int isBalanced (int[] a)`
+Integers that are NOT "Continuous factored" are:
+
+* `99 = 9 * 11`
+* `121 = 11 * 11`
+* `2 = 2`
+* `13 = 13`
+
+Write a function named `isContinuousFactored(int n)` that:
+
+* returns `1` if `n` is continuous factored
+* `0` otherwise
 
 ### Solution
 
 ```java
-public class Assignment52 {
+public class Assignment54 {
   public static void main(String[] args) {
-    int result = isBalanced(new int[]{-2, 3, 2, -3});
+    int result = isContinuousFactored(6);
     System.out.println(result);
 
-    result = isBalanced(new int[]{-2, 2, 2, 2});
+    result = isContinuousFactored(60);
     System.out.println(result);
 
-    result = isBalanced(new int[]{-5, 2, -2});
+    result = isContinuousFactored(120);
+    System.out.println(result);
+
+    result = isContinuousFactored(90);
+    System.out.println(result);
+
+    result = isContinuousFactored(121);
+    System.out.println(result);
+
+    result = isContinuousFactored(2);
+    System.out.println(result);
+
+    result = isContinuousFactored(13);
     System.out.println(result);
   }
 
-  static int isBalanced(int[] a) {
-    for (int i = 0; i < a.length; i++) {
-      boolean isBalanced = false;
-
-      for (int j = 0; j < a.length; j++) {
-        if (a[i] == -a[j]) {
-          isBalanced = true;
-          break;
-        }
-      }
-
-      if(!isBalanced) {
-        return 0;
+  static int isContinuousFactored(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0 && n % (i + 1) == 0) {
+        return 1;
       }
     }
 
-    return 1;
+    return 0;
   }  
 }
 ```

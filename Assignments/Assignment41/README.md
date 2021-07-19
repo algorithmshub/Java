@@ -1,83 +1,58 @@
-# Assignment41
+# Assignment43
 
-An array is called cube-perfect if all its elements are cubes of some integer.
+A number is called digit-increasing if it is equal to `n + nn + nnn + ...` for some digit n between `1` and `9`.
 
-### Examples
+For example `24` is digit-increasing because it equals `2 + 22` (here `n = 2`).
 
-`{-1, 1, -8, -27, 8}` is cube-perfect because:
+Write a function called `isDigitIncreasing` that:
 
-* `-1 = -1 * -1 * -1`
-* `1 = 1 * 1 * 1`
-* `-8 = -2 * -2 * -2`
-* `-27 = -3 * -3 * -3`
-* `8 = 2 * 2 * 2`
-
-`{27, 3}` is not cube-perfect because `3` is not the cube of any integer.
-
-Write a function named `isCubePerfect` that:
-
-* returns `1` if its argument is cube-perfect
+* returns `1` if its argument is digit-increasing
 * otherwise it returns `0`
 
-The function signature is `int isCubePerfect(int[] a)`
+The signature of the method is `int isDigitIncreasing(int n)`
 
-| if a is | return | reason |
+| if n is | then function returns | reason |
 |:-------------|:-------------|:-------------|
-| {1, 1, 1, 1} | 1 | all elements are cubes of 1 |
-| {64} | 1 | 64 = 4*4*4 |
-| {63} | 0 | 63 is not the cube of any integer |
-| {-1, 0, 1} | 1 | -1 = -1 * -1 * -1, 0 = 0 * 0 * 0, 1=1 * 1 * 1 |
-| {} | 1 | no elements fail the cube test |
-| {3, 7, 21, 36} | 0 | 3 is not the cube of any integer |
+| 7 | 1 | because 7 = 7 (here n is 7) |
+| 36 | 1 | because 36 = 3 + 33 |
+| 984 | 1 | because 984 = 8 + 88 + 888 |
+| 7404 | 1 | because 7404 = 6 + 66 + 666 + 6666 |
 
 ### Solution
 
 ```java
-public class Assignment41 {
+public class Assignment43 {
   public static void main(String[] args) {
-    int result = isCubePerfect(new int[]{-1, 1, -8, -27, 8});
+    int result = isDigitIncreasing(7);
     System.out.println(result);
 
-    result = isCubePerfect(new int[]{1, 1, 1, 1});
+    result = isDigitIncreasing(36);
     System.out.println(result);
 
-    result = isCubePerfect(new int[]{64});
+    result = isDigitIncreasing(984);
     System.out.println(result);
 
-    result = isCubePerfect(new int[]{63});
-    System.out.println(result);
-
-    result = isCubePerfect(new int[]{-1, 0, 1});
-    System.out.println(result);
-
-    result = isCubePerfect(new int[]{});
-    System.out.println(result);
-
-    result = isCubePerfect(new int[]{3, 7, 21, 36});
+    result = isDigitIncreasing(7404);
     System.out.println(result);
   }
 
-  static int isCubePerfect(int[] a) {
-    if (a.length == 0)
-      return 1;
+  static int isDigitIncreasing(int n) {
+    for (int i = 1; i <= 9; i++) {
+      int sum = 0;
+      int product = 0;
 
-    for (int i = 0; i < a.length; i++) {
-      a[i] = a[i] > 0 ? a[i] : -a[i];
-      
-      int n = 1;
-      int cube = 0;
-      
-      while (cube < a[i]) {
-        cube = n * n * n;
-        n++;
+      while (sum < n) {
+        product = (product * 10) + i;
+        sum += product;
+        System.out.println(sum);
       }
 
-      if (a[i] != cube) {
-        return 0;
+      if (n == sum) {
+        return 1;
       }
     }
 
-    return 1;
+    return 0;
   }
 }
 ```

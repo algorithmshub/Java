@@ -1,80 +1,76 @@
-# Assignment61
+# Assignment63
 
-A Bunker array is an array that contains the value `1` if and only if it contains a prime number.
+An array is defined to be paired-N if it contains two distinct elements that sum to `N` for some specified value of `N` and the indexes of those elements also sum to `N`.
 
-Bunker array:
+Write a function named `isPairedN` that:
 
-* `{7, 6, 10, 1}` is a Bunker array because it contains a prime number `7` and also contains a `1`
+* returns `1` if its array parameter is a paired-N array
+* otherwise it returns `0`
 
-Not a Bunker array:
+The value of `N` is passed as the second parameter.
 
-* `{7, 6, 10}` is not a Bunker array because it contains a prime number `7` but does not contain a `1`
-* `{6, 10, 1}` is not a Bunker array because it contains a `1` but does not contain a prime number
+The function signature is `int isPairedN(int[] a, int n)`
 
+There are two additional requirements:
 
-It is okay if a Bunker array contains more than one value `1` and more than one prime so `{3, 7, 1, 8, 1}` is a Bunker array (`3` and `7` are the primes).
+* once you know the array is paired-N; you should return 1; no wasted loop iterations please
+* do not enter the loop unless you have to; you should test the length of the array and the value of `n` to determine whether the array could possibly be a paired-N array; if the tests indicate no, return 0 before entering the loop
 
-Write a function named `isBunker` that:
-
-* returns `1` if its array argument is a Bunker array
-* returns `0` otherwise
-
-You may assume the existence of a function named `isPrime` that:
-
-* returns `1` if its argument is a prime
-* returns `0` otherwise
-
-You do not have to write isPrime, you can just call it.
-
-The function signature is `int isBunker(int[] a)`
+| if a is | and n is | return | reason |
+|:-------------|:-------------|:-------------|:-------------|
+| {1, 4, 1, 4, 5, 6} | 5 | 1 | because a[2] + a[3] == 5 and 2+3==5. In other words, the sum of the values is equal to the sum of the corresponding indexes and both are equal to n (5 in this case). |
+| {1, 4, 1, 4, 5, 6} | 6 | 1 | because a[2] + a[4] == 6 and 2+4==6 |
+| {0, 1, 2, 3, 4, 5, 6, 7, 8} | 6 | 1 | because a[1]+a[5]==6 and 1+5==6 |
+| {1, 4, 1} | 5 | 0 | because although a[0] + a[1] == 5, 0+1 != 5; and although a[1]+a[2]==5, 1+2 != 5 |
+| {8, 8, 8, 8, 7, 7, 7} | 15 | 0 | because there are several ways to get the values to sum to 15 but there is no way to get the corresponding indexes to sum to 15. |
+| {8, -8, 8, 8, 7, 7, -7} | -15 | 0 | because although a[1]+a[6]==-15, 1+6!=-15 |
+| {3} | 3 | 0 | because the array has only one element |
+| {} | 0 | 0 | because the array has no elements |
 
 ### Solution
 
 ```java
-public class Assignment61 {
+public class Assignment63 {
   public static void main(String[] args) {
-    int result = isBunker(new int[]{7, 6, 10, 1});
+    int result = isPairedN(new int[]{1, 4, 1, 4, 5, 6}, 5);
     System.out.println(result);
 
-    result = isBunker(new int[]{7, 6, 10});
+    result = isPairedN(new int[]{1, 4, 1, 4, 5, 6}, 6);
     System.out.println(result);
 
-    result = isBunker(new int[]{6, 10, 1});
+    result = isPairedN(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8}, 6);
     System.out.println(result);
 
-    result = isBunker(new int[]{3, 7, 1, 8, 1});
+    result = isPairedN(new int[]{1, 4, 1}, 5);
+    System.out.println(result);
+
+    result = isPairedN(new int[]{8, 8, 8, 8, 7, 7, 7}, 15);
+    System.out.println(result);
+
+    result = isPairedN(new int[]{8, -8, 8, 8, 7, 7, -7}, -15);
+    System.out.println(result);
+
+    result = isPairedN(new int[]{3}, 3);
+    System.out.println(result);
+
+    result = isPairedN(new int[]{}, 0);
     System.out.println(result);
   }
 
-  static int isBunker(int[] a) {
-    boolean one = false;
-    boolean prime = false;
-
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] == 1) {
-        one = true;
-      }
-
-      if (isPrime(a[i]) == 1) {
-        prime = true;
-      }
+  static int isPairedN(int[] a, int n) {
+    if (a.length <= 1) {
+      return 0;
     }
 
-    if (one && prime) {
-      return 1;
+    for (int i = 0; i < a.length; i++) {
+      for (int j = i + 1; j < a.length; j++) {
+        if (a[i] + a[j] == n && i + j == n) {
+          return 1;
+        }
+      }
     }
 
     return 0;
-  }
-
-  static int isPrime(int n) {
-    for (int i = 2; i < n; i++) {
-      if (n % i == 0) {
-        return 0;
-      }
-    }
-
-    return n > 1 ? 1 : 0;
   }
 }
 ```

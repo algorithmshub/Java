@@ -1,38 +1,41 @@
-# Assignment83
+# Assignment85
 
-Write a function called `goodSpread` that returns `1` if no value in its array argument occurs more than `3` times in the array.
+Write a function named `factorTwoCount` that returns the number of times that `2` divides the argument.
 
-### Examples
+### Example
 
-* `goodSpread(new int[] {2, 1, 2, 5, 2, 1, 5, 9})` returns `1` because no value occurs more than three times.
-* `goodSpread(new int[ ] {3, 1, 3 ,1, 3, 5, 5, 3})` returns `0` because the value `3` occurs four times.
+`factorTwoCount(48)` returns `4` because:
 
-The function signature is `int goodSpread(int[] a)`
+* `48/2 = 24`
+* `24/2 = 12`
+* `12/2 = 6`
+* `6/2 = 3`
+
+`2` does not divide `3` evenly.
+
+`factorTwoCount(27)` returns `0` because `2` does not divide `27`.
+
+The function signature is `int factorTwoCount(int n)`
 
 ```java
-public class Assignment83 {
-  public static void main(String[] args) {
-    int result = goodSpread(new int[]{2, 1, 2, 5, 2, 1, 5, 9});
+public class Assignment85 {
+  public static void main(String args[]) {
+    int result = factorTwoCount(48);
     System.out.println(result);
 
-    result = goodSpread(new int[]{3, 1, 3, 1, 3, 5, 5, 3});
+    result = factorTwoCount(27);
     System.out.println(result);
   }
 
-  static int goodSpread(int[] a) {
-    for (int i = 0; i < a.length; i++) {
-      int count = 0;
-      for (int j = 0; j < a.length; j++) {
-        if (a[i] == a[j]) {
-          count++;
-          if (count > 3) {
-            return 0;
-          }
-        }
-      }
+  static int factorTwoCount(int n) {
+    int count = 0;
+    
+    while (n % 2 == 0) {
+      n /= 2;
+      count++;
     }
 
-    return 1;
+    return count;
   }
 }
 ```

@@ -1,41 +1,50 @@
-# Assignment85
+# Assignment87
 
-Write a function named `factorTwoCount` that returns the number of times that `2` divides the argument.
+A Daphne array is an array that contains either all odd numbers or all even numbers.
 
-### Example
+### Examples
 
-`factorTwoCount(48)` returns `4` because:
+* `{2, 4, 2}` is Daphne array (only even numbers)
+* `{1, 3, 17, ­-5}` is Daphne array (only odd numbers)
+* `{3, 2, 5}` is not Daphne array because it contains both odd and even numbers.
 
-* `48/2 = 24`
-* `24/2 = 12`
-* `12/2 = 6`
-* `6/2 = 3`
+Write a function named `isDaphne` that:
 
-`2` does not divide `3` evenly.
+* returns `1` if its array argument is a Daphne array
+* otherwise it returns `0`
 
-`factorTwoCount(27)` returns `0` because `2` does not divide `27`.
+The function prototype is `int isDaphne(int[] a)`
 
-The function signature is `int factorTwoCount(int n)`
+### Solution
 
 ```java
-public class Assignment85 {
+public class Assignment87 {
   public static void main(String args[]) {
-    int result = factorTwoCount(48);
+    int result = isDaphne(new int[]{2, 4, 2});
     System.out.println(result);
 
-    result = factorTwoCount(27);
+    result = isDaphne(new int[]{1, 3, 17, -5});
+    System.out.println(result);
+
+    result = isDaphne(new int[]{3, 2, 5});
     System.out.println(result);
   }
 
-  static int factorTwoCount(int n) {
-    int count = 0;
-    
-    while (n % 2 == 0) {
-      n /= 2;
-      count++;
+  static int isDaphne(int[] a) {
+    boolean isOdd = false;
+    boolean isEven = false;
+
+    for (int item : a) {
+      if (item % 2 == 0) {
+        isEven = true;
+      } else {
+        isOdd = true;
+      }
+
+      if (isEven && isOdd) return 0;
     }
 
-    return count;
+    return 1;
   }
 }
 ```

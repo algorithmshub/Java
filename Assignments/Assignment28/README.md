@@ -1,63 +1,40 @@
-# Assignment28
+# Assignment30
 
-Write a function named `allValuesTheSame` that:
+Write a function named `sumDigits` that sums the digits of its integer argument.
 
-* returns `1` if all elements of its argument array have the same value
-* otherwise, it returns `0`
+### Examples
 
-The function signature is `int allValuesTheSame(int[ ] a)`
+* `sumDigits(3114)` returns `9`
+* `sumDigits(-­6543)` returns `18`
+* `sumDigits(0)` returns `0`
 
-| if a is | return |
-|:-------------|:-------------|
-| {1, 1, 1, 1} | 1 |
-| {83, 83, 83} | 1 |
-| {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}} | 1 |
-| {1, -2343456, 1, -2343456} | 0 (because there are two different values, 1 and -2343456) |
-| {0, 0, 0, 0, -1} | 0 (because there are two different values, 0 and -1) |
-| {432123456} | 1 |
-| {-432123456}} | 1 |
-| {} | 0 |
+The signature of the function is `int sumDigits (int n)`
 
 ### Solution
 
 ```java
-public class Assignment28 {
+public class Assignment30 {
   public static void main(String[] args) {
-    int result = allValuesTheSame(new int[]{1, 1, 1, 1});
+    int result = sumDigits(3114);
     System.out.println(result);
 
-    result = allValuesTheSame(new int[]{83, 83, 83});
-    System.out.println(result);
-
-    result = allValuesTheSame(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-    System.out.println(result);
-
-    result = allValuesTheSame(new int[]{1, -2343456, 1, -2343456});
-    System.out.println(result);
-
-    result = allValuesTheSame(new int[]{0, 0, 0, 0, -1});
-    System.out.println(result);
-
-    result = allValuesTheSame(new int[]{432123456});
-    System.out.println(result);
-
-    result = allValuesTheSame(new int[]{-432123456});
-    System.out.println(result);
-
-    result = allValuesTheSame(new int[]{});
+    result = sumDigits(-6543);
     System.out.println(result);
   }
 
-  static int allValuesTheSame(int[] a) {
-    if (a.length <= 0)
-      return 0;
+  static int sumDigits(int n) {
+    if (n < 0)
+      n = -n;
 
-    for (int i = 0; i < a.length - 1; i++) {
-      if (a[i] != a[i + 1])
-        return 0;
+    int sum = 0;
+
+    while (n > 0) {
+      int lastDigit = n % 10;
+      sum += lastDigit;
+      n /= 10;
     }
 
-    return 1;
+    return sum;
   }
 }
 ```

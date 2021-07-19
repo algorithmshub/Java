@@ -1,69 +1,82 @@
-# Assignment57
+# Assignment59
 
-A Bean array is defined to be an array where for every value `n` in the array, there is also an element `n­1` or `n+1` in the array.
+An array is defined to be a Bean array if the sum of the primes in the array is equal to the first element of the array. If there are no primes in the array, the first element must be 0. 
 
-### Example
+### Examples
 
-`{2, 10, 9, 3}` is a Bean array because:
+Bean array:
 
-* `2 = 3-­1`
-* `10 = 9+1`
-* `3 = 2+1`
-* `9 = 10-­1`
+* `{21, 3, 7, 9, 11 4, 6}` is a Bean array because `3`, `7`, `11` are the primes in the array and they sum to `21` which is the first element of the array
+* `{13, 4, 4,4, 4}` is also a Bean array because the sum of the primes is `13` which is also the first element
+* `{10, 5, 5}`, `{0, 6, 8, 20}` and `{3}` are Bean arrays
 
-Other Bean arrays include `{2, 2, 3, 3, 3}`, `{1, 1, 1, 2, 1, 1}` and `{0, ­1, 1}`.
+Not a Bean array:
 
-The array `{3, 4, 5, 7}` is not a Bean array because of the value `7` which requires that the array contains either the value `6` `(7­-1)` or `8` `(7+1)` but neither of these values are in the A Bunker array is defined to be an array in which at least one odd number is immediately followed by a prime number.
+* `{8, 5, ­5, 5, 3}` is not a Bean array because the sum of the primes is `5+5+3 = 13` but the first element of the array is `8`. Note that `­5` is not a prime because prime numbers are positive
 
-So `{4, 9, 6, 7, 3}` is a Bunker array because the odd number `7` is immediately followed by the prime number `3`.
+Write a function named `isBeanArray` that:
 
-But `{4, 9, 6, 15, 21}` is not a Bunker array because none of the odd numbers are immediately followed by a prime number array.
+* returns `1` if its integer array argument is a Bean array
+* otherwise it returns `0`
 
-Write a function named `isBean` that:
+The function signature is `int isBeanArray (int[] a)`
 
-* returns `1` if its array argument is a Bean array
-* otherwise it returns a `0`
+You may assume that a function named `isPrime` exists that:
 
-The function signature is `int isBean(int[] a)`
+* returns `1` if its int argument is a prime
+* otherwise it returns `0`
+
+You do not have to write this function, you just have to call it.
 
 ### Solution
 
 ```java
-public class Assignment57 {
+public class Assignment59 {
   public static void main(String[] args) {
-    int result = isBean(new int[]{2, 10, 9, 3});
+    int result = isBeanArray(new int[]{21, 3, 7, 9, 11, 4, 6});
     System.out.println(result);
 
-    result = isBean(new int[]{2, 2, 3, 3, 3});
+    result = isBeanArray(new int[]{13, 4, 4, 4, 4});
     System.out.println(result);
 
-    result = isBean(new int[]{1, 1, 1, 2, 1, 1});
+    result = isBeanArray(new int[]{10, 5, 5});
     System.out.println(result);
 
-    result = isBean(new int[]{0, -1, 1});
+    result = isBeanArray(new int[]{0, 6, 8, 20});
     System.out.println(result);
 
-    result = isBean(new int[]{3, 4, 5, 7});
+    result = isBeanArray(new int[]{3});
+    System.out.println(result);
+
+    result = isBeanArray(new int[]{8, 5, -5, 5, 3});
     System.out.println(result);
   }
 
-  static int isBean(int[] a) {
+  static int isBeanArray(int[] a) {
+    int a1 = a[0];
+    int sum = 0;
+
     for (int i = 0; i < a.length; i++) {
-      boolean isBean1 = false;
-
-      for (int j = 0; j < a.length; j++) {
-        if ((a[i] == (a[j] - 1)) || (a[i] == (a[j] + 1))) {
-          isBean1 = true;
-          break;
-        }
-      }
-
-      if (!isBean1) {
-        return 0;
+      if (isPrime(a[i])) {
+        sum += a[i];
       }
     }
 
-    return 1;
+    if (sum == a1) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+  static boolean isPrime(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return false;
+      }
+    }
+
+    return n > 0;
   }
 }
 ```

@@ -1,23 +1,64 @@
-# Assignment23
+# Assignment25
 
-Consider the prime number `11`. Note that `13` is also a prime and `13 – 11 = 2`. So, `11` and `13` are known as twin primes.
+A fancy number is a number in the sequence `1, 1, 5, 17, 61, ...`.
 
-Similarly, `29` and `31` are twin primes. So is `71` and `73`.
+Note that first two fancy numbers are `1` and any fancy number other than the first two is sum of the three times previous one and two times the one before that.
 
-However, there are many primes for which there is no twin, examples are `23`, `67`. A twin array is defined to an array which every prime that has a twin appear with a twin.
+See below:
 
-Some examples are:
+* `1`
+* `1`
+* `3 * 1 + 2 * 1 = 5`
+* `3 * 5 + 2 * 1 = 17`
+* `3 * 17 + 2 * 5 = 61`
 
-* `{3, 5, 8, 10, 27}`, `3` and `5` are twins and both are present
-* `{11, 9, 12, 13, 23}`, `11` and `13` are twins and both are present, `23` has no twin
-* `{5, 3, 14, 7, 18, 67}`, `3` and `5` are twins, `5` and `7` are twins, `67` has no twin
+Write a function named `isFancy` that:
 
-The following are NOT twin arrays:
+* returns `1` if its integer argument is a Fancy number
+* otherwise it returns `0`
 
-* `{13, 14, 15, 3, 5}` `13` has a twin prime and it is missing in the array
-* `{1, 17, 8, 25, 67}` `17` has a twin prime and it is missing in the array
+The signature of the function is `int isFancy(int n)`
 
-Write a function named `isTwin(int[] arr)` that
+### Solution
 
-* returns `1` if its array argument is a Twin array
-* otherwise it return `0`
+```java
+public class Assignment25 {
+  public static void main(String[] args) {
+    int result = isFancy(1);
+    System.out.println(result);
+
+    result = isFancy(5);
+    System.out.println(result);
+
+    result = isFancy(17);
+    System.out.println(result);
+
+    result = isFancy(61);
+    System.out.println(result);
+
+    result = isFancy(62);
+    System.out.println(result);
+  }
+
+  static int isFancy(int n) {
+    if (n == 1)
+      return 1;
+
+    int sum = 1;
+    int n1 = 1;
+    int n2 = 1;
+
+    for (int i = 1; i < n; i++) {
+      sum = 2 * n1 + 3 * n2;
+      
+      if (sum == n)
+        return 1;
+
+      n1 = n2;
+      n2 = sum;
+    }
+
+    return 0;
+  }
+}
+```

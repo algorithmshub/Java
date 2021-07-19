@@ -1,64 +1,79 @@
-# Assignment68
+# Assignment70
 
-An onion array is an array that satisfies the following condition for all values of `j` and `k`: if `j>=0` and `k>=0` and `j+k=length` of array and `j!=k` then `a[j]+a[k] <= 10`.
+An array is defined to be odd-heavy if it contains at least one odd element and every odd element is greater than every even element.
 
-Write a function named `isOnionArray` that:
+So `{11, 4, 9, 2, 8}` is odd-heavy because the two odd elements (`11` and `9`) are greater than all the even elements.
 
-* returns `1` if its array argument is an onion array
-* returns `0` if it is not
+And `{11, 4, 9, 2, 3, 10}` is not odd-heavy because the even element `10` is greater than the odd element `9`.
 
-Your solution must not use a nested loop (i.e. a loop executed from inside another loop). Furthermore, once you determine that the array is not an onion array your function must return `0`; no wasted loops cycles please.
+Write a function called `isOddHeavy` that:
 
-The function signature is `int isOnionArray(int[] a)`
+* accepts an integer array
+* returns `1` if the array is odd-heavy
+* otherwise it returns `0`
 
-| a is | the function return | reason |
-|:-------------|:-------------|:-------------|
-| {1, 2, 19, 4, 5} | 1 | because 1+5 <= 10, 2+4 <=10 |
-| {1, 2, 3, 4, 15} | 0 | because 1+15 > 10 |
-| {1, 3, 9, 8} | 0 | because 3+9 > 10 |
-| {2} | 1 | because there is no j, k where a[j]+a[k] > 10 and j+k=length of array and j!=k |
-| {} | 1 | because there is no j, k where a[j]+a[k] > 10 and j+k=length of array and j!=k |
-| {-2, 5, 0, 5, 12} | 1 | because -2+12 <= 10 and 5+5 <= 10 |
+### Examples
 
+* `{1}` is odd-heavy
+* `{2}` is not odd-heavy
+* `{1, 1, 1, 1}` is odd-heavy
+* `{2, 4, 6, 8, 11}` is odd-heavy
+* `{-2, -4, -6, -8, -11}` is not odd-heavy
+
+The function signature is `int isOddHeavy(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment68 {
+public class Assignment70 {
   public static void main(String[] args) {
-    int result = isOnionArray(new int[]{1, 2, 19, 4, 5});
+    int result = isOddHeavy(new int[]{11, 4, 9, 2, 8});
     System.out.println(result);
 
-    result = isOnionArray(new int[]{1, 2, 3, 4, 15});
+    result = isOddHeavy(new int[]{11, 4, 9, 2, 3, 10});
     System.out.println(result);
 
-    result = isOnionArray(new int[]{1, 3, 9, 8});
+    result = isOddHeavy(new int[]{1});
     System.out.println(result);
 
-    result = isOnionArray(new int[]{2});
+    result = isOddHeavy(new int[]{2});
     System.out.println(result);
 
-    result = isOnionArray(new int[]{});
+    result = isOddHeavy(new int[]{1, 1, 1, 1, 1, 1});
     System.out.println(result);
 
-    result = isOnionArray(new int[]{-2, 5, 0, 5, 12});
+    result = isOddHeavy(new int[]{2, 4, 6, 8, 11});
+    System.out.println(result);
+
+    result = isOddHeavy(new int[]{-2, -4, -6, -8, -11});
     System.out.println(result);
   }
 
-  static int isOnionArray(int[] a) {
-    if (a.length == 0 || a.length == 1) {
-      return 1;
-    }
+  static int isOddHeavy(int[] a) {
+    boolean isOddHeavy = false;
 
-    for (int i = 0, j = a.length - 1; i < j; i++, j--) {
-      if (i + j != a.length) {
-        if (a[i] + a[j] > 10) {
-          return 0;
+    int smallestOdd = Integer.MAX_VALUE;
+    int largestEven = Integer.MIN_VALUE;
+
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] % 2 != 0) {
+        isOddHeavy = true;
+
+        if (a[i] < smallestOdd) {
+          smallestOdd = a[i];
+        }
+      } else {
+        if (a[i] > largestEvent) {
+          largestEvent = a[i];
         }
       }
     }
 
-    return 1;
+    if (isOddHeavy && smallestOdd > largestEvent) {
+      return 1;
+    }
+
+    return 0;
   }
 }
 ```

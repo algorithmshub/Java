@@ -1,66 +1,76 @@
-# Assignment78
+# Assignment80
 
-A Meera array is an array that contains the value `1` if and only if it contains `9`.
+An array is called layered if its elements are in ascending order and each element appears two or more times.
 
-Meera array:
+For example `{1, 1, 2, 2, 2, 3, 3}` is layered but `{1, 2, 2, 2, 3, 3}` and `{3, 3, 1, 1, 1, 2, 2}` are not.
 
-* `{7, 9, 0, 10, 1}` is a Meera array because it contains `1` and `9`
-* `{6, 10, 8}` is a Meera array because it contains `1` and also contains `9`
+Write a method named `isLayered` that:
 
-Not Meera array:
+* accepts an integer array
+* returns `1` if the array is layered
+* otherwise it returns `0`
 
-* `{7, 6, 1}` is not a Meera array because it contains `1` but does not contain a `9`
-* `{9, 10, 0}` is not a Meera array because it contains a `9` but does not contain 1`
+The function signature is `int isLayered(int[] a)`
 
-It is okay if a Meera array contains more than one value `1` and more than one `9` so the array `{1, 1, 0, 8, 0, 9, 9, 1}` is a Meera array.
-
-Write a function named `isMeera` that:
-
-* returns `1` if its array argument is a Meera array
-* returns `0` otherwise
-
-The function signature is `int isMeera(int[] a)`
+| If the input array is | return |
+|:-------------|:-------------|
+| {1, 1, 2, 2, 2, 3, 3} | 1 |
+| {3, 3, 3, 3, 3, 3, 3} | 1 |
+| {1, 2, 2, 2, 3, 3} | 0 (because there is only one occurence of the value 1) |
+| {2, 2, 2, 3, 3, 1, 1} | 0 (because values are not in ascending order) |
+| {2} | 0 |
+| {} | 0 |
 
 ### Solution
 
 ```java
-public class Assignment78 {
+public class Assignment80 {
   public static void main(String[] args) {
-    int result = isMeera(new int[]{7, 9, 0, 10, 1});
+    int result = isLayered(new int[]{1, 1, 2, 2, 2, 3, 3});
     System.out.println(result);
 
-    result = isMeera(new int[]{6, 10, 8});
+    result = isLayered(new int[]{3, 3, 3, 3, 3, 3, 3});
     System.out.println(result);
 
-    result = isMeera(new int[]{7, 6, 1});
+    result = isLayered(new int[]{1, 2, 2, 2, 3, 3});
     System.out.println(result);
 
-    result = isMeera(new int[]{9, 10, 0});
+    result = isLayered(new int[]{2, 2, 2, 3, 3, 1, 1});
     System.out.println(result);
 
-    result = isMeera(new int[]{1, 1, 0, 8, 0, 9, 9, 1});
+    result = isLayered(new int[]{2});
+    System.out.println(result);
+
+    result = isLayered(new int[]{});
     System.out.println(result);
   }
 
-  static int isMeera(int[] a) {
-    boolean no1 = false;
-    boolean no9 = false;
+  static int isLayered(int[] a) {
+    if (a.length <= 1) {
+      return 0;
+    }
 
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] == 1) {
-        no1 = true;
+    int count = 1;
+
+    for (int i = 0; i < a.length - 1; i++) {
+      if (a[i] > a[i + 1]){
+        return 0;
       }
 
-      if (a[i] == 9) {
-        no9 = true;
+      if (a[i] == a[i + 1]) {
+        count++;
+      }
+
+      if (a[i] != a[i + 1]) {
+        if (count < 2) {
+          return 0;
+        }
+
+        count = 1;
       }
     }
 
-    if ((no1 && no9) || (!no1 && !no9)) {
-      return 1;
-    }
-
-    return 0;
+    return 1;
   }
 }
 ```

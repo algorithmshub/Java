@@ -1,53 +1,56 @@
-# Assignment60
+# Assignment62
 
-An integer is defined to be a Bunker number if it is an element in the infinite sequence `1, 2, 4, 7, 11, 16, 22, ...`. Note that `2­-1=1`, `4­-2=2`, `7-­4=3`, `11-­7=4`, `16-­11=5` so for `k>1`, the `kth` element of the sequence is equal to the `k-­1th` element + `k­-1`.
+A Bunker array is defined to be an array in which at least one odd number is immediately followed by a prime number.
 
-For example, for `k=6`, `16` is the `kth` element and is equal to `11` (the `k­-1th` element) + `5` `(k­-1)`.
+### Examples
 
-Write function named `isBunker` that:
+* `{4, 9, 6, 7, 3}` is a Bunker array because the odd number `7` is immediately followed by the prime number `3`.
+* `{4, 9, 6, 15, 21}` is not a Bunker array because none of the odd numbers are immediately followed by a prime number.
 
-* returns `1` if its argument is a Bunker number
+Write a function named `isBunkerArray` that:
+
+* returns `1` if its array argument is a Bunker array
 * otherwise it returns `0`
 
-So:
+The function signature is `int isBunkerArray(int[] a)`
 
-* `isBunker(11)` returns `1`
-* `isBunker(22)` returns `1`
-* `isBunker(8)` returns `0`
+You may assume that there exists a function `isPrime` that:
 
-The function signature is `int isBunker(int n)`
+* returns `1` if it argument is a prime
+* otherwise it returns `0`
+
+You do not have to write this function.
 
 ### Solution
 
 ```java
-public class Assignment60 {
+public class Assignment62 {
   public static void main(String[] args) {
-    int result = isBunker(11);
+    int result = isBunkerArray(new int[]{4, 9, 6, 7, 3});
     System.out.println(result);
 
-    result = isBunker(22);
-    System.out.println(result);
-
-    result = isBunker(8);
+    result = isBunkerArray(new int[]{4, 9, 6, 15, 21});
     System.out.println(result);
   }
 
-  static int isBunker(int n) {
-    int prevElement = 1;
-    int index = 0;
-    int element = 0;
-
-    while (element < n) {
-      element = prevElement + index;
-      prevElement = element;
-      index++;
-    }
-
-    if (element == n) {
-      return 1;
+  static int isBunkerArray(int[] a) {
+    for (int i = 0; i < a.length - 1; i++) {
+      if (a[i] % 2 != 0 && isPrime(a[i + 1]) == 1) {
+        return 1;
+      }
     }
 
     return 0;
+  }
+
+  static int isPrime(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return 0;
+      }
+    }
+
+    return 1;
   }
 }
 ```

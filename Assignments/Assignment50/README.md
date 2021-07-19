@@ -1,40 +1,52 @@
-# Assignment50
+# Assignment52
 
-An Evens number is an integer whose digits are all even.
+A balanced array is defined to be an array where for every value `n` in the array, `n` also is in the array.
 
-For example `2426` is an Evens number but `3224` is not.
+### Examples
 
-Write a function named isEvens that:
+* `{­-2, 3, 2, -­3}` is a balanced array
+* `{­-2, 2, 2, 2}` is a balanced array
+* `{-­5, 2, -2}` is not because `5` is not in the array
 
-* returns `1` if its integer argument is an Evens number
+Write a function named `isBalanced` that:
+
+* returns `1` if its array argument is a balanced array
 * otherwise it returns `0`
 
-The function signature is `int isEvens (int n)`
+The function signature is `int isBalanced (int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment50 {
+public class Assignment52 {
   public static void main(String[] args) {
-    int result = isEvens(2426);
+    int result = isBalanced(new int[]{-2, 3, 2, -3});
     System.out.println(result);
 
-    result = isEvens(3224);
+    result = isBalanced(new int[]{-2, 2, 2, 2});
+    System.out.println(result);
+
+    result = isBalanced(new int[]{-5, 2, -2});
     System.out.println(result);
   }
 
-  static int isEvens(int n) {
-    while (n > 0) {
-      int lastDigit = n % 10;
-      
-      if (lastDigit % 2 != 0) {
-        return 0;
+  static int isBalanced(int[] a) {
+    for (int i = 0; i < a.length; i++) {
+      boolean isBalanced = false;
+
+      for (int j = 0; j < a.length; j++) {
+        if (a[i] == -a[j]) {
+          isBalanced = true;
+          break;
+        }
       }
 
-      n /= 10;
+      if(!isBalanced) {
+        return 0;
+      }
     }
 
     return 1;
-  }
+  }  
 }
 ```

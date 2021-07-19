@@ -1,50 +1,45 @@
-# Assignment87
+# Assignment89
 
-A Daphne array is an array that contains either all odd numbers or all even numbers.
+A Pascal number is a number that is the sum of the integers from `1` to `j` for some `j`.
 
 ### Examples
 
-* `{2, 4, 2}` is Daphne array (only even numbers)
-* `{1, 3, 17, ­-5}` is Daphne array (only odd numbers)
-* `{3, 2, 5}` is not Daphne array because it contains both odd and even numbers.
+* `6` is a Pascal number because `6 = 1 + 2 + 3` ( j is 3 )
+* `15` is a Pascal number because `15 = 1 + 2 + 3 + 4 + 5`
+* `7` is not a Pascal number because it falls between the Pascal numbers `6` and `10`
 
-Write a function named `isDaphne` that:
+Write a function named `isPascal` that:
 
-* returns `1` if its array argument is a Daphne array
+* returns `1` if its integer argument is a Pascal number
 * otherwise it returns `0`
 
-The function prototype is `int isDaphne(int[] a)`
+The signature of the function is `int isPascal(int n)`
 
 ### Solution
 
 ```java
-public class Assignment87 {
+public class Assignment89 {
   public static void main(String args[]) {
-    int result = isDaphne(new int[]{2, 4, 2});
+    int result = isPascal(6);
     System.out.println(result);
 
-    result = isDaphne(new int[]{1, 3, 17, -5});
+    result = isPascal(15);
     System.out.println(result);
 
-    result = isDaphne(new int[]{3, 2, 5});
+    result = isPascal(7);
     System.out.println(result);
   }
 
-  static int isDaphne(int[] a) {
-    boolean isOdd = false;
-    boolean isEven = false;
+  static int isPascal(int n) {
+    int sum = 0;
+    int isPascal = 0;
 
-    for (int item : a) {
-      if (item % 2 == 0) {
-        isEven = true;
-      } else {
-        isOdd = true;
-      }
-
-      if (isEven && isOdd) return 0;
+    for (int i = 1; i < n; i++) {
+      sum += i;
+      if (sum == n) isPascal = 1;
     }
 
-    return 1;
+    return isPascal;
   }
 }
 ```

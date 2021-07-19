@@ -1,48 +1,75 @@
-# Assignment53
+# Assignment55
 
-An array is called balanced if its even numbered elements (`a[0]`, `a[2]`, etc.) are even and its odd numbered elements (`a[1]`, `a[3]`, etc.) are odd.
+The number `198` has the property that `198 = 11 + 99 + 88, ...`, if each of its digits is concatenated twice and then summed, the result will be the original number.
 
-Write a function named `isBalanced` that:
+It turns out that `198` is the only number with this property. However, the property can be generalized so that each digit is concatenated n times and then summed.
 
-* accepts an array of integers
-* returns `1` if the array is balanced
-* otherwise it returns `0`
+For example, `2997 = 222 + 999 + 999 + 777` and here each digit is concatenated three times.
 
-### Examples
+Write a function named `checkContenatedSum` that tests if a number has this generalized property.
 
-* `{2, 3, 6, 7}` is balanced since `a[0]` and `a[2]` are even, `a[1]` and `a[3]` are odd
-* `{6, 7, 2, 3, 12}` is balanced since `a[0]`, `a[2]` and `a[4]` are even, `a[1]` and `a[3]` are odd
-* `{7, 15, 2, 3}` is not balanced since `a[0]` is odd
-* `{16, 6, 2, 3}` is not balanced since `a[1]` is even
+The signature of the function is `int checkConcatenatedSum(int n, int catlen)` where `n` is the number and `catlen` is the number of times to concatenate each digit before summing.
 
-The function signature is `int isBalanced(int[] a)`
+The function returns `1` if `n` is equal to the sum of each of its digits contenated catlen times.
+
+Otherwise, it returns `0`.
+
+You may assume that `n` and `catlen` are greater than zero.
+
+Hint: Use integer and modulo `10` arithmetic to sequence through the digits of the argument.
+
+| if n is | and catlen is | return | reason |
+|:-------------|:-------------|:-------------|:-------------|
+| 198 | 2 | 1 | because 198 == 11 + 99 + 88 |
+| 198 | 3 | 0 | because 198 != 111 + 999 + 888 |
+| 2997 | 3 | 1 | because 2997 == 222 + 999 + 999 + 777 |
+| 2997 | 2 | 0 | because 2997 != 22 + 99 + 99 + 77 |
+| 13332 | 4 | 1 | because 13332 = 1111 + 3333 + 3333 + 3333 + 2222 |
+| 9 | 1 | 1 | because 9 == 9 |
 
 ### Solution
 
 ```java
-public class Assignment53 {
+public class Assignment55 {
   public static void main(String[] args) {
-    int result = isBalanced(new int[]{2, 3, 6, 7});
+    int result = checkConcatenatedSum(198, 2);
     System.out.println(result);
 
-    result = isBalanced(new int[]{6, 7, 2, 3, 12});
+    result = checkConcatenatedSum(198, 3);
     System.out.println(result);
 
-    result = isBalanced(new int[]{7, 15, 2, 3});
+    result = checkConcatenatedSum(2997, 3);
     System.out.println(result);
 
-    result = isBalanced(new int[]{16, 6, 2, 3});
+    result = checkConcatenatedSum(2997, 2);
+    System.out.println(result);
+
+    result = checkConcatenatedSum(13332, 4);
+    System.out.println(result);
+
+    result = checkConcatenatedSum(9, 1);
     System.out.println(result);
   }
 
-  static int isBalanced(int[] a) {
-    for (int i = 0; i < a.length; i++) {
-      if ((i % 2 == 0 && a[i] % 2 != 0) || (i % 2 != 0 && a[i] % 2 == 0)) {
-        return 0;
+  static int checkConcatenatedSum(int n, int catlen) {
+    int tmpN = n;
+    int sum = 0;
+
+    while (tmpN > 0) {
+      int lastDigit = tmpN % 10;
+
+      for (int i = 1, j = 1; j <= catlen; i *= 10, j++) {
+        sum += lastDigit * i;
       }
+
+      tmpN /= 10;
     }
 
-    return 1;
-  }
+    if (n == sum) {
+      return 1;
+    }
+
+    return 0;
+  }  
 }
 ```

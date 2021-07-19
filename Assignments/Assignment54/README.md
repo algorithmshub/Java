@@ -1,65 +1,76 @@
-# Assignment54
+# Assignment56
 
-An integer is defined to be "Continuous factored" if it can be expressed as the product of two or more continuous integers greater than `1`.
+An array is defined to be a Bean array if it meets the following conditions:
 
-### Examples
+* if it contains a `9` then it also contains a `13`
+* if it contains a `7` then it does not contain a `16`
 
-"Continuous factored" integers are:
+So:
 
-* `6 = 2 * 3`
-* `60 = 3 * 4 * 5`
-* `120 = 4 * 5 * 6`
-* `90 = 9 * 10`
+The following arrays are Bean arrays:
 
-### Examples
+* `{1, 2, 3, 9, 6, 13}` and `{3, 4, 6, 7, 13, 15}`
+* `{1, 2, 3, 4, 10, 11, 12`} and `{3, 6, 9, 5, 7, 13, 6, 17}`
 
-Integers that are NOT "Continuous factored" are:
+The following arrays are not Bean arrays:
 
-* `99 = 9 * 11`
-* `121 = 11 * 11`
-* `2 = 2`
-* `13 = 13`
+* `{ 9, 6, 18}` (contains a `9` but no `13`)
+* `{4, 7, 16}` (contains both a `7` and a `16`)
 
-Write a function named `isContinuousFactored(int n)` that:
+Write a function named `isBean` that:
 
-* returns `1` if `n` is continuous factored
-* `0` otherwise
+* returns `1` if its array argument is a Bean array
+* otherwise it returns `0`
+
+The function signature is `int isBean(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment54 {
+public class Assignment56 {
   public static void main(String[] args) {
-    int result = isContinuousFactored(6);
+    int result = isBean(new int[]{1, 2, 3, 9, 6, 13});
     System.out.println(result);
 
-    result = isContinuousFactored(60);
+    result = isBean(new int[]{3, 4, 6, 7, 13, 15});
     System.out.println(result);
 
-    result = isContinuousFactored(120);
+    result = isBean(new int[]{1, 2, 3, 4, 10, 11, 12});
     System.out.println(result);
 
-    result = isContinuousFactored(90);
+    result = isBean(new int[]{3, 6, 9, 5, 7, 13, 6, 17});
     System.out.println(result);
 
-    result = isContinuousFactored(121);
+    result = isBean(new int[]{9, 6, 18});
     System.out.println(result);
 
-    result = isContinuousFactored(2);
-    System.out.println(result);
-
-    result = isContinuousFactored(13);
+    result = isBean(new int[]{4, 7, 16});
     System.out.println(result);
   }
 
-  static int isContinuousFactored(int n) {
-    for (int i = 2; i < n; i++) {
-      if (n % i == 0 && n % (i + 1) == 0) {
-        return 1;
+  static int isBean(int[] a) {
+    boolean a9 = false;
+    boolean a13 = false;
+    boolean a7 = false;
+    boolean a16 = false;
+
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] == 9) {
+        a9 = true;
+      } else if (a[i] == 13) {
+        a13 = true;
+      } else if (a[i] == 7) {
+        a7 = true;
+      } else if (a[i] == 16) {
+        a16 = true;
       }
     }
 
+    if ((a9 && a13) || (a7 && !a16) || (!a9 && !a7)) {
+      return 1;
+    }
+
     return 0;
-  }  
+  }
 }
 ```

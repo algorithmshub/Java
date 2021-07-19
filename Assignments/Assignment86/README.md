@@ -1,53 +1,58 @@
-# Assignment86
+# Assignment88
 
-Two integers are defined to be factor equal if they have the same number of factors.
+A Daphne array is defined to be an array that contains at least one odd number and begins and ends with the same number of even numbers.
 
-### Example
+### Examples
 
-integers `10` and `33` are factor equal because:
+* `{4, 8, 6, 3, 2, 9, 8,11, 8, 13, 12, 12, 6}` is a Daphne array because it begins with three even numbers and ends with three even numbers and it contains at least one odd number
+* `{2, 4, 6, 8, 6}` is not a Daphne array because it does not contain an odd number.
+* `{2, 8, 7, 10, ­4, 6}` is not a Daphne array because it begins with two even numbers but ends with three even numbers.
 
-* `10` has four factors: `1, 2, 5, 10`
-* `33` has four factors: `1, 2, 5, 10`
+Write a function named `isDaphne` that:
 
-integers `9` and `10` are not factor equal because:
+* returns `1` if its array argument is a Daphne array
+* otherwise it returns `0`
 
-* `9` has only three factors: `1, 3, 9`
-* `10` has four factors: `1, 2, 5, 10`
+The function signature is `int isDaphne(int[] a)`
 
-Write a function named `factorEqual(int n, int m)` that:
-
-* returns `1` if `n` and `m` are factor equal
-* `0` otherwise
-
-The signature of the function is `int factorEqual(int n, int m)`
+### Solution
 
 ```java
-public class Assignment86 {
+public class Assignment88 {
   public static void main(String args[]) {
-    int result = factorEqual(10, 33);
+    int result = isDaphne(new int[]{4, 8, 6, 3, 2, 9, 8,11, 8, 13, 12, 12, 6});
     System.out.println(result);
 
-    result = factorEqual(9, 10);
+    result = isDaphne1(new int[]{2, 4, 6, 8, 6});
+    System.out.println(result);
+
+    result = isDaphne1(new int[]{2, 8, 7, 10, 4, 6});
     System.out.println(result);
   }
 
-  static int factorEqual(int n, int m) {
-    if (n < 0 || m < 0) return 0;
+  static int isDaphne(int[] a) {
+    int headCountEven = 0;
+    int tailCountEven = 0;
+    boolean isOdd = false;
 
-    int countN = 0;
-    int countM = 0;
-
-    for (int i = 1; i <= n; i++) {
-      if (n % i == 0) {
-        countN++;
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] % 2 == 0) {
+        headCountEven++;
+      } else {
+        isOdd = true;
+        break;
       }
     }
 
-    for (int j = 1; j <= m; j++) {
-      if (m % j == 0) countM++;
+    for (int i = a.length - 1; i >= 0 ; i--) {
+      if (a[i] % 2 == 0) {
+        tailCountEven++;
+      } else {
+        break;
+      }
     }
 
-    if (countN == countM) return 1;
+    if (headCountEven == tailCountEven && isOdd) return 1;
     return 0;
   }
 }

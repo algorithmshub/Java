@@ -1,72 +1,48 @@
-# Assignment51
+# Assignment53
 
-An array is defined to be a Magic array if the sum of the primes in the array is equal to the first element of the array.
+An array is called balanced if its even numbered elements (`a[0]`, `a[2]`, etc.) are even and its odd numbered elements (`a[1]`, `a[3]`, etc.) are odd.
 
-If there are no primes in the array, the first element must be `0`.
+Write a function named `isBalanced` that:
 
-So `{21, 3, 7, 9, 11 4, 6}` is a Magic array because `3, 7, 11` are the primes in the array and they sum to `21` which is the first element of the array.
-
-`{13, 4, 4, 4, 4}` is also a Magic array because the sum of the primes is `13` which is also the first element.
-
-Other Magic arrays are `{10, 5, 5}`, `{0, 6, 8, 20}` and `{3}`.
-
-`{8, 5, -­5, 5, 3}` is not a Magic array because the sum of the primes is `5+5+3 = 13`. Note that `-­5` is not a prime because prime numbers are positive.
-
-Write a function named `isMagicArray` that:
-
-* returns `1` if its integer array argument is a Magic array
+* accepts an array of integers
+* returns `1` if the array is balanced
 * otherwise it returns `0`
 
-The function signature is `int isMagicArray (int[] a)`
+### Examples
+
+* `{2, 3, 6, 7}` is balanced since `a[0]` and `a[2]` are even, `a[1]` and `a[3]` are odd
+* `{6, 7, 2, 3, 12}` is balanced since `a[0]`, `a[2]` and `a[4]` are even, `a[1]` and `a[3]` are odd
+* `{7, 15, 2, 3}` is not balanced since `a[0]` is odd
+* `{16, 6, 2, 3}` is not balanced since `a[1]` is even
+
+The function signature is `int isBalanced(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment51 {
+public class Assignment53 {
   public static void main(String[] args) {
-    int result = isMagicArray(new int[]{21, 3, 7, 9, 11 4, 6});
+    int result = isBalanced(new int[]{2, 3, 6, 7});
     System.out.println(result);
 
-    result = isMagicArray(new int[]{13, 4, 4, 4, 4});
+    result = isBalanced(new int[]{6, 7, 2, 3, 12});
     System.out.println(result);
 
-    result = isMagicArray(new int[]{10, 5, 5});
+    result = isBalanced(new int[]{7, 15, 2, 3});
     System.out.println(result);
 
-    result = isMagicArray(new int[]{0, 6, 8, 20});
-    System.out.println(result);
-
-    result = isMagicArray(new int[]{3});
-    System.out.println(result);
-
-    result = isMagicArray(new int[]{8, 5, -­5, 5, 3});
+    result = isBalanced(new int[]{16, 6, 2, 3});
     System.out.println(result);
   }
 
-  static int isMagicArray(int[] a) {
-    if (a.length == 0)
-      return 0;
-
-    int sumPrime = 0;
-
+  static int isBalanced(int[] a) {
     for (int i = 0; i < a.length; i++) {
-      if (isPrime(a[i] == 1))
-        sumPrime += a[i];
-    }
-
-    if (a[0] == sumPrime)
-      return 1;
-
-    return 0;
-  }
-
-  static int isPrime(int n) {
-    for (int i = 2; i < n; i++) {
-      if (n % i == 0)
+      if ((i % 2 == 0 && a[i] % 2 != 0) || (i % 2 != 0 && a[i] % 2 == 0)) {
         return 0;
+      }
     }
 
-    return n > 0 ? 1 : 0;
+    return 1;
   }
 }
 ```

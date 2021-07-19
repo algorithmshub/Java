@@ -1,69 +1,64 @@
-# Assignment66
+# Assignment68
 
-A number `n` is called prime happy if there is at least one prime less than `n` and the sum of all primes less than `n` is evenly divisible by `n`.
+An onion array is an array that satisfies the following condition for all values of `j` and `k`: if `j>=0` and `k>=0` and `j+k=length` of array and `j!=k` then `a[j]+a[k] <= 10`.
 
-Recall that a prime number is an `integer > 1` which has only two integer factors, `1` and itself.
+Write a function named `isOnionArray` that:
 
-The function prototype is `int isPrimeHappy(int n)`
+* returns `1` if its array argument is an onion array
+* returns `0` if it is not
 
-| if n is | return | because |
+Your solution must not use a nested loop (i.e. a loop executed from inside another loop). Furthermore, once you determine that the array is not an onion array your function must return `0`; no wasted loops cycles please.
+
+The function signature is `int isOnionArray(int[] a)`
+
+| a is | the function return | reason |
 |:-------------|:-------------|:-------------|
-| 5 | 1 | because 2 and 3 are the primes less than 5, their sum is 5 and 5 evenly divides 5. |
-| 25 | 1 | because 2, 3, 5, 7, 11, 13, 17, 19, 23 are the primes less than 25, their sum is 100 and 25 evenly divides 100 |
-| 32 | 1 | because 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31 are the primes less than 32, their sum is 160 and 32 evenly divides 160 |
-| 8 | 0 | because 2, 3, 5, 7 are the primes less than 8, their sum is 17 and 8 does not evenly divide 17. |
-| 2 | 0 | because there are no primes less than 2. |
+| {1, 2, 19, 4, 5} | 1 | because 1+5 <= 10, 2+4 <=10 |
+| {1, 2, 3, 4, 15} | 0 | because 1+15 > 10 |
+| {1, 3, 9, 8} | 0 | because 3+9 > 10 |
+| {2} | 1 | because there is no j, k where a[j]+a[k] > 10 and j+k=length of array and j!=k |
+| {} | 1 | because there is no j, k where a[j]+a[k] > 10 and j+k=length of array and j!=k |
+| {-2, 5, 0, 5, 12} | 1 | because -2+12 <= 10 and 5+5 <= 10 |
+
 
 ### Solution
 
 ```java
-public class Assignment66 {
+public class Assignment68 {
   public static void main(String[] args) {
-    int result = isPrimeHappy(5);
+    int result = isOnionArray(new int[]{1, 2, 19, 4, 5});
     System.out.println(result);
 
-    result = isPrimeHappy(25);
+    result = isOnionArray(new int[]{1, 2, 3, 4, 15});
     System.out.println(result);
 
-    result = isPrimeHappy(32);
+    result = isOnionArray(new int[]{1, 3, 9, 8});
     System.out.println(result);
 
-    result = isPrimeHappy(8);
+    result = isOnionArray(new int[]{2});
     System.out.println(result);
 
-    result = isPrimeHappy(2);
+    result = isOnionArray(new int[]{});
+    System.out.println(result);
+
+    result = isOnionArray(new int[]{-2, 5, 0, 5, 12});
     System.out.println(result);
   }
 
-  static int isPrimeHappy(int n) {
-    int number = 2;
-    int sum = 0;
-    boolean isPrimeHappy = false;
-
-    while (number < n) {
-      if (isPrime(number)) {
-        isPrimeHappy = true;
-        sum += number;
-      }
-
-      number++;
-    }
-
-    if (isPrimeHappy && sum % n == 0) {
+  static int isOnionArray(int[] a) {
+    if (a.length == 0 || a.length == 1) {
       return 1;
     }
 
-    return 0;
-  }
-
-  static boolean isPrime(int n) {
-    for (int i = 2; i < n; i++) {
-      if (n % i == 0) {
-        return false;
+    for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+      if (i + j != a.length) {
+        if (a[i] + a[j] > 10) {
+          return 0;
+        }
       }
     }
 
-    return n > 0;
+    return 1;
   }
 }
 ```

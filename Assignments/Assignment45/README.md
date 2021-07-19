@@ -1,55 +1,63 @@
-# Assignment45
+# Assignment47
 
-An array is said to be dual if it has an even number of elements and each pair of consecutive even and odd elements sum to the same value.
+A positive number `n` is consecutive-factored if and only if it has factors, `i` and `j` where `i > 1`, `j > 1` and `j = i + 1`.
 
-Write a function named `isDual` that:
+Write a function named `isConsecutiveFactored` that:
 
-* accepts an array of integers
-* returns `1` if the array is dual
+* returns `1` if its argument is consecutive-factored
 * otherwise it returns `0`
 
-### Examples
+The function signature is `int isConsectiveFactored(int n)`
 
-* `{1, 2, 3, 0}` is a dual array (because 1+2 = 3+0 = 3)
-* `{1, 2, 2, 1, 3, 0}` is a dual array (because 1+2 = 2+1 = 3+0 = 3)
-* `{1, 1, 2, 2}` is not a dual array (because 1+1 is not equal to 2+2)
-* `{1, 2, 1}` is not a dual array (because array does not have an even number of elements)
-* `{}` is a dual array
-
-The function signature is `int isDual(int[] a)`
+| if n is | return | reason |
+|:-------------|:-------------|:-------------|
+| 24 | 1 | 24 = 2*3*4 and 3 = 2 + 1 |
+| 105 | 0 | 105 = 3*5*7 and 5 != 3+1 and 7 != 5+1 |
+| 90 | 1 | factors of 90 include 2 and 3 and 3 = 2 + 1 |
+| 23 | 0 | has only 1 factor that is not equal to 1 |
+| 15 | 0 | 15 = 3*5 and 5 != 3 + 1 |
+| 2 | 0 | 2 = 1*2, 2 = 1 + 1 but factor 1 is not greater than 1 |
+| 0 | 0 | n has to be positive |
+| -12 | 0 | n has to be positive |
 
 ### Solution
 
 ```java
-public class Assignment45 {
+public class Assignment47 {
   public static void main(String[] args) {
-    int result = isDual(new int[]{1, 2, 3, 0});
+    int result = isConsectiveFactored(24);
     System.out.println(result);
 
-    result = isDual(new int[]{1, 2, 2, 1, 3, 0});
+    result = isConsectiveFactored(105);
     System.out.println(result);
 
-    result = isDual(new int[]{1, 1, 2, 2});
+    result = isConsectiveFactored(90);
     System.out.println(result);
 
-    result = isDual(new int[]{1, 2, 1});
+    result = isConsectiveFactored(23);
+    System.out.println(result);
+
+    result = isConsectiveFactored(15);
+    System.out.println(result);
+
+    result = isConsectiveFactored(2);
+    System.out.println(result);
+
+    result = isConsectiveFactored(0);
+    System.out.println(result);
+
+    result = isConsectiveFactored(-12);
     System.out.println(result);
   }
 
-  static int isDual(int[] a) {
-    if (a.length % 2 != 0) {
-      return 0;
-    }
-
-    int sum = a[0] + a[1];
-
-    for (int i = 0; i < a.length - 1; i += 2) {
-      if (sum != a[i] + a[i + 1]) {
-        return 0;
+  static int isConsectiveFactored(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0 && n % (i + 1) == 0) {
+        return 1;
       }
     }
 
-    return 1;
+    return 0;
   }
 }
 ```

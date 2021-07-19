@@ -1,59 +1,58 @@
-# Assignment88
+# Assignment90
 
-A Daphne array is defined to be an array that contains at least one odd number and begins and ends with the same number of even numbers.
+A Suff array is defined to be an array where for every value n in the array there is also an element `n­-1` or `n+1` in the array.
 
-### Examples
+### Example
 
-* `{4, 8, 6, 3, 2, 9, 8,11, 8, 13, 12, 12, 6}` is a Daphne array because it begins with three even numbers and ends with three even numbers and it contains at least one odd number
-* `{2, 4, 6, 8, 6}` is not a Daphne array because it does not contain an odd number.
-* `{2, 8, 7, 10, ­4, 6}` is not a Daphne array because it begins with two even numbers but ends with three even numbers.
+`{2, 10, 9, 3}` is a Suff array because:
 
-Write a function named `isDaphne` that:
+* 2 = 3­-1
+* 10 = 9+1
+* 9 = 10-­1
+* 3 = 2 + 1
 
-* returns `1` if its array argument is a Daphne array
-* otherwise it returns `0`
+`{2, 2, 3, 3, 3}`, `{1, 1, 1, 2, 1, 1}` and `{0, ­1, 1}` are Suff arrays.
 
-The function signature is `int isDaphne(int[] a)`
+`{3, 4, 5, 7}` is not a Suff array because of the value `7` which requires that the array contains either the value `6` (`7­-1`) or `8` (`7+1`) but neither of these values are in the array.
+
+The function signature is `int isSuff(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment88 {
+public class Assignment90 {
   public static void main(String args[]) {
-    int result = isDaphne(new int[]{4, 8, 6, 3, 2, 9, 8,11, 8, 13, 12, 12, 6});
+    int result = isSuff(new int[]{2, 10, 9, 3});
     System.out.println(result);
 
-    result = isDaphne1(new int[]{2, 4, 6, 8, 6});
+    result = isSuff(new int[]{2, 2, 3, 3, 3});
     System.out.println(result);
 
-    result = isDaphne1(new int[]{2, 8, 7, 10, 4, 6});
+    result = isSuff(new int[]{1, 1, 1, 2, 1, 1});
+    System.out.println(result);
+
+    result = isSuff(new int[]{0, 1, 1});
+    System.out.println(result);
+
+    result = isSuff(new int[]{3, 4, 5, 7});
     System.out.println(result);
   }
 
-  static int isDaphne(int[] a) {
-    int headCountEven = 0;
-    int tailCountEven = 0;
-    boolean isOdd = false;
-
+  static int isSuff(int[] a) {
     for (int i = 0; i < a.length; i++) {
-      if (a[i] % 2 == 0) {
-        headCountEven++;
-      } else {
-        isOdd = true;
-        break;
+      boolean isSuff = false;
+
+      for (int j = 0; j < a.length; j++) {
+        if ((a[i] == (a[j] - 1)) || (a[i] == (a[j] + 1))) {
+          isSuff = true;
+          break;
+        }
       }
+
+      if (!isSuff) return 0;
     }
 
-    for (int i = a.length - 1; i >= 0 ; i--) {
-      if (a[i] % 2 == 0) {
-        tailCountEven++;
-      } else {
-        break;
-      }
-    }
-
-    if (headCountEven == tailCountEven && isOdd) return 1;
-    return 0;
+    return 1;
   }
 }
 ```

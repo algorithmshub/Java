@@ -1,19 +1,60 @@
-# Assignment65
+# Assignment67
 
-A primeproduct is a positive integer that is the product of exactly two primes greater than `1`.
+Write a function named `largestPrimeFactor` that will return the largest prime factor of a number.
 
-For example, `22` is primeproduct since `22=2` times `11` and both `2` and `11` are primes greater than `1`.
+If the number is `<=1` it should return `0`.
 
-Write a function named `isPrimeProduct` with an integer parameter that:
+Recall that a prime number is a `number > 1` that is divisible only by `1` and itself.
 
-* returns `1` if the parameter is a primeproduct
-* otherwise it returns `0`
+E.g., `13` is prime but `14` is not.
 
-Recall that a prime number is a positive integer with no factors other than `1` and itself.
+The signature of the function is `int largestPrimeFactor(int n)`
 
-You may assume that there exists a function named `isPrime(int m)` that:
+| if n is | return | because |
+|:-------------|:-------------|:-------------|
+| 10 | 5 | because the prime factors of 10 are 2 and 5 and 5 is the largest one. |
+| 6936 | 17 | because the distinct prime factors of 6936 are 2, 3 and 17 and 17 is the largest |
+| 1 | 0 | because n must be greater than 1 |
 
-* returns `1` if its `m` is a prime number
-* otherwise it returns `0`
+### Solution
 
-You do not need to write isPrime. You are allowed to use this function.
+```java
+public class Assignment67 {
+  public static void main(String[] args) {
+    int result = largestPrimeFactor(10);
+    System.out.println(result);
+
+    result = largestPrimeFactor(6936);
+    System.out.println(result);
+
+    result = largestPrimeFactor(1);
+    System.out.println(result);
+  }
+
+  static int largestPrimeFactor(int n) {
+    if(n <= 1) {
+      return 0;
+    }
+
+    int largestPrimeFactor = 2;
+
+    for (int i = 2; i <= n; i++) {
+      if (n % i == 0 && isPrime(i)) {
+        largestPrimeFactor = i;
+      }
+    }
+
+    return largestPrimeFactor;
+  }
+
+  static boolean isPrime(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0) {
+        return false;
+      }
+    }
+
+    return n > 0;
+  }
+}
+```

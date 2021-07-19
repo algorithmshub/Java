@@ -1,49 +1,41 @@
-# Assignment37
+# Assignment39
 
-Write a function named `countOnes` that returns the number of ones in the binary representation of its argument.
+Given an array of integers.
 
-For example, `countOnes(9)` returns `2` because the binary representation of `9` is `1001`.
+Our task is to write a program that efficiently finds the second largest element present in the array.
 
 ### Examples
 
-* `countOnes(5)` returns `2` because binary `101` equals `5`
-* `countOnes(15)` returns `4` because binary `1111` equals `15`
+* Input: `arr[] = {12, 35, 1, 10, 34, 1}` Output: The second largest element is `34`
+* Input: `arr[] = {10, 5, 10}` Output: The second largest element is `5`
+* Input: `arr[] = {10, 10, 10}` Output: The second largest does not exist
 
-You may assume that the argument is greater than `0`.
-
-The function prototype is `int countOnes(int n)`
-
-Hint use modulo and integer arithmetic to count the number of ones.
+The function prototype is `int secondLargest(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment37 {
+public class Assignment39 {
   public static void main(String[] args) {
-    int result = countOnes(9);
-    System.out.println(result);
-
-    result = countOnes(5);
-    System.out.println(result);
-
-    result = countOnes(15);
+    int result = secondLargest(new int[]{12, 35, 1, 10, 34, 1});
     System.out.println(result);
   }
 
-  static int countOnes(int n) {
-    int countOnes = 0;
+  static int secondLargest(int[] a) {
+    int max = -1;
+    int secondMax = -1;
 
-    while (n > 0) {
-      int digit = n % 2;
-
-      if (digit == 1) {
-        countOnes++;
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] > max) {
+        secondMax = max;
+        max = a[i];
       }
 
-      n /= 2;
+      if (a[i] > secondMax && a[i] != max)
+        secondMax = a[i]; 
     }
 
-    return countOnes;
+    return secondMax;
   }
 }
 ```

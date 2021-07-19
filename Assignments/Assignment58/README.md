@@ -1,62 +1,53 @@
-# Assignment58
+# Assignment60
 
-A Bean array is defined to be an integer array where for every value n in the array, there is also an element 2n, 2n+1 or n/2 in the array.
+An integer is defined to be a Bunker number if it is an element in the infinite sequence `1, 2, 4, 7, 11, 16, 22, ...`. Note that `2­-1=1`, `4­-2=2`, `7-­4=3`, `11-­7=4`, `16-­11=5` so for `k>1`, the `kth` element of the sequence is equal to the `k-­1th` element + `k­-1`.
 
-### Example
+For example, for `k=6`, `16` is the `kth` element and is equal to `11` (the `k­-1th` element) + `5` `(k­-1)`.
 
-Bean array:
+Write function named `isBunker` that:
 
-* `{4, 9, 8}` is a Bean array because for `4`, `8` is present; for `9`, `4` is present; for `8`, `4` is present.
-* `{2, 2, 5, 11, 23}`, `{7, 7, 3, 6}` and `{0}` are a Bean array
+* returns `1` if its argument is a Bunker number
+* otherwise it returns `0`
 
-Not a Bean array:
+So:
 
-* `{3, 8, 4}` is not a Bean array because of the value `3` which requires that the array contains either the value `6`, `7` or `1` and none of these values are in the array.
+* `isBunker(11)` returns `1`
+* `isBunker(22)` returns `1`
+* `isBunker(8)` returns `0`
 
-Write a function named `isBean` that:
-
-* returns `1` if its array argument is a Bean array
-* otherwise it returns a `0`
-
-The function signature is `int isBean(int[] a)`
+The function signature is `int isBunker(int n)`
 
 ### Solution
 
 ```java
-public class Assignment58 {
+public class Assignment60 {
   public static void main(String[] args) {
-    int result = isBean(new int[]{4, 9, 8});
+    int result = isBunker(11);
     System.out.println(result);
 
-    result = isBean(new int[]{2, 2, 5, 11, 23});
+    result = isBunker(22);
     System.out.println(result);
 
-    result = isBean(new int[]{7, 7, 3, 6});
-    System.out.println(result);
-
-    result = isBean(new int[]{0});
-    System.out.println(result);
-
-    result = isBean(new int[]{3, 8, 4});
+    result = isBunker(8);
     System.out.println(result);
   }
 
-  static int isBean(int[] a) {
-    for (int i = 0; i < a.length; i++) {
-      boolean isBean = false;
+  static int isBunker(int n) {
+    int prevElement = 1;
+    int index = 0;
+    int element = 0;
 
-      for (int j = 0; j < a.length; j++) {
-        if ((a[i] == (a[j] * 2)) || (a[i] == (a[j] * 2 +1)) || (a[i] == (a[j] / 2))) {
-          isBean = true;
-        }
-      }
-
-      if (!isBean) {
-        return 0;
-      }
+    while (element < n) {
+      element = prevElement + index;
+      prevElement = element;
+      index++;
     }
 
-    return 1;
+    if (element == n) {
+      return 1;
+    }
+
+    return 0;
   }
 }
 ```

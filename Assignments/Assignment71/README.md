@@ -1,65 +1,54 @@
-# Assignment71
+# Assignment73
 
-A Nice array is defined to be an array where for every value `n` in the array, there is also an element `n­`1 or `n+1` in the array.
+A Meera number is a number such that the number of nontrivial factors is a factor of the number.
 
-### Example
+### Examples
 
-`{2, 10, 9, 3}` is a Nice array because:
+Meera number:
 
-* `2 = 3-­1`
-* `10 = 9+1`
-* `3 = 2+1`
-* `9 = 10-1`
+* `6` is a Meera number because `6` has two nontrivial factors : `2` and `3`. (A nontrivial factor is a factor other than `1` and the number). Thus `6` has two nontrivial factors. Now, `2` is a factor of `6`. Thus the number of nontrivial factors is a factor of `6`. Hence `6` is a Meera number.
+* `30` is a Meera number because `30` has `2, 3, 5, 6, 10, 15` as nontrivial factors. Thus `30` has `6` nontrivial factors. Note that `6` is a factor of `30`. So `30` is a Meera Number.
 
-Other Nice arrays include `{2, 2, 3, 3, 3}`, `{1, 1, 1, 2, 1, 1}` and `{0, ­1, 1}`.
+Not Meera number:
 
-`{3, 4, 5, 7}` is not a Nice array because of the value `7` which requires that the array contains either the value `6` `(7­-1)` or `8` `(7+1)` but neither of these values are in the array.
+* `21` is not a Meera number. The nontrivial factors of `21` are `3` and `7`. Thus the number of nontrivial factors is `2`. Note that `2` is not a factor of `21`. Therefore, `21` is not a Meera number.
 
-Write a function named `isNice` that:
+Write a function named `isMeera` that:
 
-* returns `1` if its array argument is a Nice array
-* otherwise it returns a `0`
+* returns `1` if its integer argument is a Meera number
+* otherwise it returns `0`
 
-The function signature is `int isNice(int[] a)`
+The signature of the function is `int isMeera(int n)`
 
 ### Solution
 
 ```java
-public class Assignment71 {
+public class Assignment73 {
   public static void main(String[] args) {
-    int result = isNice(new int[]{2, 10, 9, 3});
+    int result = isMeera(6);
     System.out.println(result);
 
-    result = isNice(new int[]{2, 2, 3, 3, 3});
+    result = isMeera(30);
     System.out.println(result);
 
-    result = isNice(new int[]{1, 1, 1, 2, 1, 1});
-    System.out.println(result);
-
-    result = isNice(new int[]{0, -1, 1});
-    System.out.println(result);
-
-    result = isNice(new int[]{3, 4, 5, 7});
+    result = isMeera(21);
     System.out.println(result);
   }
 
-  static int isNice(int[] a) {
-    for (int i = 0 ; i < a.length; i++) {
-      boolean isNice = false;
-      
-      for (int j = 0; j < a.length; j++) {
-        if ((a[i] == a[j] - 1) || (a[i] == a[j] + 1)) {
-          isNice = true;
-          break;
-        }
-      }
+  static int isMeera(int n) {
+    int meeraCount = 0;
 
-      if (!isNice) {
-        return 0;
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0) {
+        meeraCount++;
       }
     }
 
-    return 1;
+    if (n % meeraCount == 0) {
+      return 1;
+    }
+
+    return 0;
   }
 }
 ```

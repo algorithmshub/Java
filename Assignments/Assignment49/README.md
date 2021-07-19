@@ -1,69 +1,72 @@
-# Assignment49
+# Assignment51
 
-An array is defined to be odd­valent if it meets the following two conditions:
+An array is defined to be a Magic array if the sum of the primes in the array is equal to the first element of the array.
 
-* it contains a value that occurs more than once
-* it contains an odd number
+If there are no primes in the array, the first element must be `0`.
 
-# Examples
+So `{21, 3, 7, 9, 11 4, 6}` is a Magic array because `3, 7, 11` are the primes in the array and they sum to `21` which is the first element of the array.
 
-* `{9, 3, 4, 9, 1}` is odd­valent because `9` appears more than once and 3 is odd
-* other odd­ valent arrays are `{3, 3, 3, 3}` and `{8, 8, 8, 4, 4, 7, 2}`
+`{13, 4, 4, 4, 4}` is also a Magic array because the sum of the primes is `13` which is also the first element.
 
-The following arrays are not odd­valent:
+Other Magic arrays are `{10, 5, 5}`, `{0, 6, 8, 20}` and `{3}`.
 
-* `{1, 2, 3, 4, 5}` ­ no value appears more than once
-* `{2, 2, 2, 4, 4}` ­ there are duplicate values but there is no odd value
+`{8, 5, -­5, 5, 3}` is not a Magic array because the sum of the primes is `5+5+3 = 13`. Note that `-­5` is not a prime because prime numbers are positive.
 
-Write a function name `isOddValent` that:
+Write a function named `isMagicArray` that:
 
-* returns `1` if its array argument is odd­valent
+* returns `1` if its integer array argument is a Magic array
 * otherwise it returns `0`
 
-The function prototype is `int isOddValent (int[] a)`
+The function signature is `int isMagicArray (int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment49 {
+public class Assignment51 {
   public static void main(String[] args) {
-    int result = isOddValent(new int[]{9, 3, 4, 9, 1});
+    int result = isMagicArray(new int[]{21, 3, 7, 9, 11 4, 6});
     System.out.println(result);
 
-    result = isOddValent(new int[]{3, 3, 3, 3});
+    result = isMagicArray(new int[]{13, 4, 4, 4, 4});
     System.out.println(result);
 
-    result = isOddValent(new int[]{8, 8, 8, 4, 4, 7, 2});
+    result = isMagicArray(new int[]{10, 5, 5});
     System.out.println(result);
 
-    result = isOddValent(new int[]{1, 2, 3, 4, 5});
+    result = isMagicArray(new int[]{0, 6, 8, 20});
     System.out.println(result);
 
-    result = isOddValent(new int[]{2, 2, 2, 4, 4});
+    result = isMagicArray(new int[]{3});
+    System.out.println(result);
+
+    result = isMagicArray(new int[]{8, 5, -­5, 5, 3});
     System.out.println(result);
   }
 
-  static int isOddValent(int[] a) {
-    boolean occurrence = false;
-    boolean odd = false;
-    
+  static int isMagicArray(int[] a) {
+    if (a.length == 0)
+      return 0;
+
+    int sumPrime = 0;
+
     for (int i = 0; i < a.length; i++) {
-      if (a[i] % 2 != 0) {
-        odd = true;
-      }
-
-      for (int j = i + 1; j < a.length; j++) {
-        if (a[i] == a[j]) {
-          occurrence = true;
-          break;
-        }
-      }
-
-      if (odd && occurrence)
-        return 1;
+      if (isPrime(a[i] == 1))
+        sumPrime += a[i];
     }
 
+    if (a[0] == sumPrime)
+      return 1;
+
     return 0;
+  }
+
+  static int isPrime(int n) {
+    for (int i = 2; i < n; i++) {
+      if (n % i == 0)
+        return 0;
+    }
+
+    return n > 0 ? 1 : 0;
   }
 }
 ```

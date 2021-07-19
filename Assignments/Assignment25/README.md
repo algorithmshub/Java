@@ -1,64 +1,44 @@
-# Assignment25
+# Assignment27
 
-A fancy number is a number in the sequence `1, 1, 5, 17, 61, ...`.
+Write a function named `largestAdjacentSum` that iterates through an array computing the sum of adjacent elements and returning the largest such sum. You may assume that the array has at least `2` elements.
 
-Note that first two fancy numbers are `1` and any fancy number other than the first two is sum of the three times previous one and two times the one before that.
+The function signature is `int largestAdjacentSum(int[] a)`
 
-See below:
-
-* `1`
-* `1`
-* `3 * 1 + 2 * 1 = 5`
-* `3 * 5 + 2 * 1 = 17`
-* `3 * 17 + 2 * 5 = 61`
-
-Write a function named `isFancy` that:
-
-* returns `1` if its integer argument is a Fancy number
-* otherwise it returns `0`
-
-The signature of the function is `int isFancy(int n)`
+| if input parameters are | return |
+|:-------------|:-------------|
+| {1, 2, 3, 4} | 7 because 3+4 is larger than either 1+2 or 2+3 |
+| {18, -12, 9, -10} | 6 because 18-12 is larger than -12+9 or 9-10 |
+| {1,1,1,1,1,1,1,1,1} | 2 because all adjacent pairs sum to 2 |
+| {1,1,1,1,1,2,1,1,1} | 3 because 1+2 or 2+1 is the max sum of adjacent pairs |
 
 ### Solution
 
 ```java
-public class Assignment25 {
+public class Assignment27 {
   public static void main(String[] args) {
-    int result = isFancy(1);
+    int result = largestAdjacentSum(new int[]{1, 2, 3, 4});
     System.out.println(result);
 
-    result = isFancy(5);
+    result = largestAdjacentSum(new int[]{18, -12, 9, -10});
     System.out.println(result);
 
-    result = isFancy(17);
+    result = largestAdjacentSum(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1});
     System.out.println(result);
 
-    result = isFancy(61);
-    System.out.println(result);
-
-    result = isFancy(62);
+    result = largestAdjacentSum(new int[]{1, 1, 1, 1, 1, 2, 1, 1, 1});
     System.out.println(result);
   }
 
-  static int isFancy(int n) {
-    if (n == 1)
-      return 1;
+  static int largestAdjacentSum(int[] a) {
+    int sum = 0;
 
-    int sum = 1;
-    int n1 = 1;
-    int n2 = 1;
-
-    for (int i = 1; i < n; i++) {
-      sum = 2 * n1 + 3 * n2;
-      
-      if (sum == n)
-        return 1;
-
-      n1 = n2;
-      n2 = sum;
+    for (int i = 0; i < a.length - 1; i++) {
+      if (a[i] + a[i + 1] > sum) {
+        sum = a[i] + a[i + 1];
+      }
     }
 
-    return 0;
+    return sum;
   }
 }
 ```

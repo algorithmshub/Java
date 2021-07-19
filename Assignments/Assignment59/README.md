@@ -1,82 +1,80 @@
-# Assignment59
+# Assignment61
 
-An array is defined to be a Bean array if the sum of the primes in the array is equal to the first element of the array. If there are no primes in the array, the first element must be 0. 
+A Bunker array is an array that contains the value `1` if and only if it contains a prime number.
 
-### Examples
+Bunker array:
 
-Bean array:
+* `{7, 6, 10, 1}` is a Bunker array because it contains a prime number `7` and also contains a `1`
 
-* `{21, 3, 7, 9, 11 4, 6}` is a Bean array because `3`, `7`, `11` are the primes in the array and they sum to `21` which is the first element of the array
-* `{13, 4, 4,4, 4}` is also a Bean array because the sum of the primes is `13` which is also the first element
-* `{10, 5, 5}`, `{0, 6, 8, 20}` and `{3}` are Bean arrays
+Not a Bunker array:
 
-Not a Bean array:
+* `{7, 6, 10}` is not a Bunker array because it contains a prime number `7` but does not contain a `1`
+* `{6, 10, 1}` is not a Bunker array because it contains a `1` but does not contain a prime number
 
-* `{8, 5, ­5, 5, 3}` is not a Bean array because the sum of the primes is `5+5+3 = 13` but the first element of the array is `8`. Note that `­5` is not a prime because prime numbers are positive
 
-Write a function named `isBeanArray` that:
+It is okay if a Bunker array contains more than one value `1` and more than one prime so `{3, 7, 1, 8, 1}` is a Bunker array (`3` and `7` are the primes).
 
-* returns `1` if its integer array argument is a Bean array
-* otherwise it returns `0`
+Write a function named `isBunker` that:
 
-The function signature is `int isBeanArray (int[] a)`
+* returns `1` if its array argument is a Bunker array
+* returns `0` otherwise
 
-You may assume that a function named `isPrime` exists that:
+You may assume the existence of a function named `isPrime` that:
 
-* returns `1` if its int argument is a prime
-* otherwise it returns `0`
+* returns `1` if its argument is a prime
+* returns `0` otherwise
 
-You do not have to write this function, you just have to call it.
+You do not have to write isPrime, you can just call it.
+
+The function signature is `int isBunker(int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment59 {
+public class Assignment61 {
   public static void main(String[] args) {
-    int result = isBeanArray(new int[]{21, 3, 7, 9, 11, 4, 6});
+    int result = isBunker(new int[]{7, 6, 10, 1});
     System.out.println(result);
 
-    result = isBeanArray(new int[]{13, 4, 4, 4, 4});
+    result = isBunker(new int[]{7, 6, 10});
     System.out.println(result);
 
-    result = isBeanArray(new int[]{10, 5, 5});
+    result = isBunker(new int[]{6, 10, 1});
     System.out.println(result);
 
-    result = isBeanArray(new int[]{0, 6, 8, 20});
-    System.out.println(result);
-
-    result = isBeanArray(new int[]{3});
-    System.out.println(result);
-
-    result = isBeanArray(new int[]{8, 5, -5, 5, 3});
+    result = isBunker(new int[]{3, 7, 1, 8, 1});
     System.out.println(result);
   }
 
-  static int isBeanArray(int[] a) {
-    int a1 = a[0];
-    int sum = 0;
+  static int isBunker(int[] a) {
+    boolean one = false;
+    boolean prime = false;
 
     for (int i = 0; i < a.length; i++) {
-      if (isPrime(a[i])) {
-        sum += a[i];
+      if (a[i] == 1) {
+        one = true;
+      }
+
+      if (isPrime(a[i]) == 1) {
+        prime = true;
       }
     }
 
-    if (sum == a1) {
+    if (one && prime) {
       return 1;
     }
 
     return 0;
   }
 
-  static boolean isPrime(int n) {
+  static int isPrime(int n) {
     for (int i = 2; i < n; i++) {
       if (n % i == 0) {
-        return false;
+        return 0;
       }
     }
 
-    return n > 0;
+    return n > 1 ? 1 : 0;
   }
 }
 ```

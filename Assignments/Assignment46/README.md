@@ -1,69 +1,64 @@
-# Assignment46
+# Assignment48
 
-Write a method named computeHMS that computes the number of hours, minutes and seconds in a given number of seconds.
+A normal number is defined to be one that has no odd factors, except for `1` and possibly itself.
 
-The method signature is `int[] computeHMS(int seconds)`
+Write a method named `isNormal` that:
 
-The returned array has 3 elements:
+* returns `1` if its integer argument is normal
+* otherwise it returns `0`
 
-* `arr[0]` is the hours
-* `arr[1]` is the minutes
-* `arr[2]` is the seconds contained within the seconds argument
+# Examples:
 
-Recall that there are `3600` seconds in an hour and `60` seconds in a minute.
+* `1, 2, 3, 4, 5, 7, 8` are normal numbers
+* `6` and `9` are not normal numbers since 3 is an odd factor
+* `10` is not a normal number since `5` is an odd factor
 
-You may assume that the numbers of seconds is non-negative.
-
-| if seconds is | return | reason |
-|:-------------|:-------------|:-------------|
-| 3735 | {1, 2, 15} | because 3735 = 1*3600 + 2*60 + 15. In other words, 3,735 is the number of seconds in 1 hour 2 minutes and 15 seconds |
-| 380 | {0, 6, 20} | because 380 = 0*3600 + 6*60 + 20 |
-| 3650 | {1, 0, 50} | because 3650 = 1*3600 + 0*60 + 50 |
-| 55 | {0, 0, 55} | because 55 = 0*3600 + 0*60 + 55 |
-| 0 | {0, 0, 0} | because 0 = 0*3600 + 0*60 + 0 |
+The function signature is `int isNormal(int n)`
 
 ### Solution
 
 ```java
-import java.util.Arrays;
-
-public class Assignment46 {
+public class Assignment48 {
   public static void main(String[] args) {
-    int[] result = computeHMS(3735);
-    System.out.println(Arrays.toString(result));
+    int result = isNormal(1);
+    System.out.println(result);
 
-    result = computeHMS(380);
-    System.out.println(Arrays.toString(result));
+    result = isNormal(2);
+    System.out.println(result);
 
-    result = computeHMS(3650);
-    System.out.println(Arrays.toString(result));
+    result = isNormal(3);
+    System.out.println(result);
 
-    result = computeHMS(55);
-    System.out.println(Arrays.toString(result));
+    result = isNormal(4);
+    System.out.println(result);
 
-    result = computeHMS(0);
-    System.out.println(Arrays.toString(result));
+    result = isNormal(5);
+    System.out.println(result);
+
+    result = isNormal(6);
+    System.out.println(result);
+
+    result = isNormal(7);
+    System.out.println(result);
+
+    result = isNormal(8);
+    System.out.println(result);
+
+    result = isNormal(9);
+    System.out.println(result);
   }
 
-  static int[] computeHMS(int seconds) {
-    int[] hms = new int[3];
+  static int isNormal(int n) {
+    for (int i = 2; i < n; i++) {
+      int factor = 0;
+      if (n % i ==0)
+        factor = i;
 
-    int hour = 0;
-    int minute = 0;
-    int second = 0;
+      if (factor % 2 != 0)
+        return 0;
+    }
 
-    hour = seconds / 3600;
-    seconds %= 3600;
-    hms[0] = hour;
-
-    minute = seconds / 60;
-    seconds %= 60;
-    hms[1] = minute;
-
-    second = seconds;
-    hms[2] = second;
-
-    return hms;
+    return 1;
   }
 }
 ```

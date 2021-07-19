@@ -1,51 +1,47 @@
-# Assignment29
+# Assignment31
 
-Define an array to be sum-safe if none of its elements is equal to the sum of its elements.
+Define a Triple array to be an array where every value occurs exactly three times.
 
-The array `a = {5, -5, 0}` is not sum-safe because the sum of its elements is `0` and `a[2] == 0`.
+For example, `{3, 1, 2, 1, 3, 1, 3, 2, 2}` is a Triple array.
 
-However, the array `a = {5, -2, 1}` is sum-safe because the sum of its elements is `4` and none of its elements equal `4`.
+The following arrays are not Triple arrays:
 
-Write a function named `isSumSafe` that:
+* `{2, 5, 2, 5, 5, 2, 5}` (5 occurs four times instead of three times)
+* `{3, 1, 1, 1}` (3 occurs once instead of three times)
 
-* returns `1` if its argument is sum-safe
+Write a function named `isTriple` that:
+
+* returns `1` if its array argument is a Triple array
 * otherwise it returns `0`
 
-The function signature is `int isSumSafe(int[] a)`
-
-### Examples
-
-* `isSumSafe(new int[ ] {5, -5, 0})` should return `0`
-* `isSumSafe(new int[ ]{5, -2, 1})` should return `1`
-* return `0` if the array is empty
+The function signature is `int isTriple (int[] a)`
 
 ### Solution
 
 ```java
-public class Assignment29 {
+public class Assignment31 {
   public static void main(String[] args) {
-    int result = isSumSafe(new int[]{5, -5, 0});
+    int result = isTriple(new int[]{3, 1, 2, 1, 3, 1, 3, 2, 2});
     System.out.println(result);
 
-    result = isSumSafe(new int[]{5, -2, 1});
+    result = isTriple(new int[]{2, 5, 2, 5, 5, 2, 5});
     System.out.println(result);
- 
-    result = isSumSafe(new int[]{});
+
+    result = isTriple(new int[]{3, 1, 1, 1});
     System.out.println(result);
   }
 
-  static int isSumSafe(int[] a) {
-    if (a.length == 0)
-      return 0;
-
-    int sum = 0;
-
+  static int isTriple(int[] a) {
     for (int i = 0; i < a.length; i++) {
-      sum += a[i];
-    }
+      int count = 0;
+      
+      for (int j = 0; j < a.length; j++) {
+        if (a[i] == a[j]) {
+          count ++;
+        }
+      }
 
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] == sum) {
+      if (count != 3) {
         return 0;
       }
     }

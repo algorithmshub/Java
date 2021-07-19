@@ -1,4 +1,4 @@
-public class Assignment24 {
+public class Assignment22 {
   public static void main(String[] args) {
     int result = isFactorialPrime(2);
     System.out.println(result);

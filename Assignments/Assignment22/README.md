@@ -1,4 +1,4 @@
-# Assignment24
+# Assignment22
 
 A positive, non-zero number `n` is a factorial prime if it is equal to `factorial(n) + 1` for some `n` and it is prime.
 
@@ -34,7 +34,7 @@ The signature of the method is `int isFactorialPrime(int n)`
 ### Solution
 
 ```java
-public class Assignment24 {
+public class Assignment22 {
   public static void main(String[] args) {
     int result = isFactorialPrime(2);
     System.out.println(result);

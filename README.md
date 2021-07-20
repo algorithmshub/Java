@@ -47,8 +47,8 @@
   * [Assignment19](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment19)
   * [Assignment20](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment20)
   * [Assignment21](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment21) <!-- TODO -->
-  * [Assignment22](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment22) <!-- TODO -->
-  * [Assignment23](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment23) <!-- TODO -->
+  * [Assignment22](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment22)
+  * [Assignment23](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment23)
   * [Assignment24](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment24)
   * [Assignment25](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment25)
   * [Assignment26](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment26)
@@ -88,9 +88,9 @@
   * [Assignment60](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment60)
   * [Assignment61](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment61)
   * [Assignment62](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment62)
-  * [Assignment63](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment63)
+  * [Assignment63](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment63) <!-- TODO -->
   * [Assignment64](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment64)
-  * [Assignment65](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment65) <!-- TODO -->
+  * [Assignment65](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment65)
   * [Assignment66](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment66)
   * [Assignment67](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment67)
   * [Assignment68](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment68)
@@ -104,9 +104,9 @@
   * [Assignment76](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment76)
   * [Assignment77](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment77)
   * [Assignment78](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment78)
-  * [Assignment79](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment79)
+  * [Assignment79](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment79) <!-- TODO -->
   * [Assignment80](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment80)
-  * [Assignment81](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment81) <!-- TODO -->
+  * [Assignment81](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment81)
   * [Assignment82](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment82)
   * [Assignment83](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment83)
   * [Assignment84](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment84)
@@ -117,8 +117,6 @@
   * [Assignment89](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment89)
   * [Assignment90](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment90)
   * [Assignment91](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment91)
-  * [Assignment92](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment92)
-  * [Assignment93](https://github.com/algorithmshub/Java/tree/main/Assignments/Assignment93)
 
 <!--
 

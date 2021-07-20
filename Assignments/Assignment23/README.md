@@ -1,10 +1,10 @@
-# Assignment25
+# Assignment23
 
 A fancy number is a number in the sequence `1, 1, 5, 17, 61, ...`.
 
-Note that first two fancy numbers are `1` and any fancy number other than the first two is sum of the three times previous one and two times the one before that.
+First two fancy numbers are `1` and any fancy number other than the first two is sum of the three times previous one and two times the one before that.
 
-See below:
+### Examples
 
 * `1`
 * `1`
@@ -22,7 +22,7 @@ The signature of the function is `int isFancy(int n)`
 ### Solution
 
 ```java
-public class Assignment25 {
+public class Assignment23 {
   public static void main(String[] args) {
     int result = isFancy(1);
     System.out.println(result);

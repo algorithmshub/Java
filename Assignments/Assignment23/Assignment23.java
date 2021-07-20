@@ -1,4 +1,4 @@
-public class Assignment25 {
+public class Assignment23 {
   public static void main(String[] args) {
     int result = isFancy(1);
     System.out.println(result);

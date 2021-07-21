@@ -2,7 +2,7 @@
 
 Write a function named `largestPrimeFactor` that will return the largest prime factor of a number.
 
-If the number is `<=1` it should return `0`.
+If the number is `<= 1` it should return `0`.
 
 Recall that a prime number is `a number > 1` that is divisible only by `1` and itself.
 

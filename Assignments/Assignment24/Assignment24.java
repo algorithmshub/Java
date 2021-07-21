@@ -1,4 +1,4 @@
-public class Assignment26 {
+public class Assignment24 {
   public static void main(String[] args) {
     int result = largestPrimeFactor(10);
     System.out.println(result);

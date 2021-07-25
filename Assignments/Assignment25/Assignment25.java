@@ -1,4 +1,4 @@
-public class Assignment27 {
+public class Assignment25 {
   public static void main(String[] args) {
     int result = largestAdjacentSum(new int[]{1, 2, 3, 4});
     System.out.println(result);

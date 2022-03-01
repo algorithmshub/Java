@@ -2,10 +2,11 @@
 
 Given a set of n integers, perform minimum number of operations (you can insert/delete elements into/from the set) to make the MEX of the set equal to x (that is given).
 
-Note − The MEX of a set of integers is the minimum non-negative integer that doesn’t exist in it. For example, the MEX of the set {0, 2, 4} is 1 and the MEX of the set {1, 2, 3} is 0
+Note − The MEX of a set of integers is the minimum non-negative integer that doesn’t exist in it. For example, the MEX of the set {0, 2, 4} is 1 and the MEX of the set {1, 2, 3} is 0.
 
 Example
-If n = 5 and x = 3 and array is {0, 4, 5, 6, 7} then we require minimum 2 operations
+
+If n = 5 and x = 3 and array is {0, 4, 5, 6, 7} then we require minimum 2 operations.
 
 Example
 ```
